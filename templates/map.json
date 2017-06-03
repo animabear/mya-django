@@ -1,0 +1,67 @@
+{
+    "res": {
+        "components/jquery/jquery.js": {
+            "uri": "/static/components/jquery/jquery_3118144.js",
+            "type": "js"
+        },
+        "layout.html": {
+            "uri": "/layout.html",
+            "type": "html",
+            "extras": {
+                "isPage": true
+            }
+        },
+        "pages/index.html": {
+            "uri": "/pages/index.html",
+            "type": "html",
+            "extras": {
+                "isPage": true
+            }
+        },
+        "static/lib/mod.js": {
+            "uri": "/static/lib/mod_eb15903.js",
+            "type": "js"
+        },
+        "widget/common/common.js": {
+            "uri": "/static/widget/common/common_e39b329.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "widget/common/common"
+            }
+        },
+        "widget/common.html": {
+            "uri": "widget/common.html",
+            "type": "html",
+            "deps": [
+                "widget/common/common.js"
+            ]
+        },
+        "widget/footer.html": {
+            "uri": "widget/footer.html",
+            "type": "html"
+        },
+        "widget/header/header.css": {
+            "uri": "/static/widget/header/header_01815f8.css",
+            "type": "css"
+        },
+        "widget/header/header.js": {
+            "uri": "/static/widget/header/header_5921cb7.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "widget/header/header"
+            },
+            "deps": [
+                "components/jquery/jquery.js"
+            ]
+        },
+        "widget/header.html": {
+            "uri": "widget/header.html",
+            "type": "html",
+            "deps": [
+                "widget/header/header.js",
+                "widget/header/header.css"
+            ]
+        }
+    },
+    "pkg": {}
+}

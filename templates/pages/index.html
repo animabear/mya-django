@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% load widget from widget %}
+
+{% block content %}
+    <p>hello {{ name }}</p>
+
+    {% widget name="widget/header.html" mode="test" %}
+
+    {% widget name="widget/footer.html" mode="test" username=name age=age %}
+
+{% endblock %}
