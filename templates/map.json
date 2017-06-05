@@ -38,7 +38,26 @@
         },
         "widget/footer.html": {
             "uri": "widget/footer.html",
-            "type": "html"
+            "type": "html",
+            "deps": [
+                "widget/footer/footer.js",
+                "widget/footer/footer.css"
+            ]
+        },
+        "widget/footer/footer.css": {
+            "uri": "/static/widget/footer/footer_01815f8.css",
+            "type": "css"
+        },
+        "widget/footer/footer.js": {
+            "uri": "/static/widget/footer/footer_5921cb7.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "widget/footer/footer"
+            },
+            "deps": [
+                "components/jquery/jquery.js",
+                "widget/common/common.js"
+            ]
         },
         "widget/header/header.css": {
             "uri": "/static/widget/header/header_01815f8.css",
@@ -51,13 +70,15 @@
                 "moduleId": "widget/header/header"
             },
             "deps": [
-                "components/jquery/jquery.js"
+                "components/jquery/jquery.js",
+                "widget/common/common.js"
             ]
         },
         "widget/header.html": {
             "uri": "widget/header.html",
             "type": "html",
             "deps": [
+                "static/lib/mod.js",
                 "widget/header/header.js",
                 "widget/header/header.css"
             ]

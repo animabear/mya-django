@@ -6,7 +6,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.template import RequestContext
 from django.http import HttpResponse
-from .mya_resource import MYAResource
+from .resource import MYAResource
 
 def index(request):
     # 读取静态资源映射表
@@ -26,6 +26,8 @@ def index(request):
     html = t.render(c)
 
     print mya_resource.get_deps()
+
+    html = mya_resource.render_response(html)
 
     return HttpResponse(html)
 

@@ -31,13 +31,15 @@ class WidgetNode(template.Node):
         name = params.get('name', '')
         mode = params.get('mode', '')
 
+        print name
+
         # 向下层 widget 传递 mya_resource
         ctx_params['_mya_resource'] = mya_resource = context.get('_mya_resource')
 
         # 分析并收集依赖
-        mya_resource.loadDeps(name)
+        mya_resource.load_deps(name)
         # 渲染模版
-        t = get_template(mya_resource.get_template_uri(name))
+        t = get_template(mya_resource.get_template_path(name))
         html = t.render(Context( ctx_params ))
         return html
 
