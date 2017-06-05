@@ -44,6 +44,13 @@ class WidgetNode(template.Node):
         name = params.get('name', '')
         mode = params.get('mode', '')
 
+        # 向下层 widget 传递 deps 和 map_data
+        ctx_params['_deps'] = deps = context.get('_deps', [])
+        ctx_params['_map_data'] = context.get('_map_data')
+        # todo: 分析并收集依赖
+        deps.append(name);
+
         t = get_template(name)
         html = t.render(Context( ctx_params ))
+
         return html
