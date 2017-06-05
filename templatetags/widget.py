@@ -9,19 +9,6 @@ register = template.Library()
 # widget标签的默认参数
 default_params = ['name', 'mode']
 
-@register.tag(name="widget")
-def do_widget(parser, token):
-    try:
-        contents = token.split_contents()
-        tag_name = contents[0]
-        params   = contents[1:]
-
-    except ValueError:
-        print 'params error'
-
-    return WidgetNode(params)
-
-
 class WidgetNode(template.Node):
     def __init__(self, params):
         self.params = params
@@ -52,5 +39,19 @@ class WidgetNode(template.Node):
 
         t = get_template(name)
         html = t.render(Context( ctx_params ))
-
         return html
+
+
+def do_widget(parser, token):
+    try:
+        contents = token.split_contents()
+        tag_name = contents[0]
+        params   = contents[1:]
+
+    except ValueError:
+        print 'params error'
+
+    return WidgetNode(params)
+
+
+register.tag('widget', do_widget)

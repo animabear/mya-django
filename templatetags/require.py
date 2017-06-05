@@ -6,19 +6,6 @@ from django.template import Context
 
 register = template.Library()
 
-@register.tag(name="require")
-def do_require(parser, token):
-    try:
-        contents = token.split_contents()
-        tag_name = contents[0]
-        params   = contents[1:]
-
-    except ValueError:
-        print 'params error'
-
-    return RequireNode(params)
-
-
 class RequireNode(template.Node):
     def __init__(self, params):
         self.params = params
@@ -41,4 +28,18 @@ class RequireNode(template.Node):
         else:
             return '<link rel="stylesheet" href="%s" />' % (name)
 
+
+def do_require(parser, token):
+    try:
+        contents = token.split_contents()
+        tag_name = contents[0]
+        params   = contents[1:]
+
+    except ValueError:
+        print 'params error'
+
+    return RequireNode(params)
+
+
+register.tag('require', do_require)
 
