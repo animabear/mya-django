@@ -1,4 +1,5 @@
 # coding=utf-8
+import re
 
 class MYAResource(object):
     SCRIPT_PLACEHOLDER = '<!--SCRIPT_PLACEHOLDER-->'
@@ -64,7 +65,7 @@ class MYAResource(object):
     """
     /**
      * 获取组件模版路径
-     * @param  string name 组件名字
+     * @param string name 组件名字
      */
     """
     def get_template_path(self, name):
@@ -73,22 +74,36 @@ class MYAResource(object):
 
     """
     /**
-     * 获取依赖
-     * todo: del
-     */
-    """
-    def get_deps(self):
-        deps = {
-            'css': self.style_deps,
-            'js':  self.script_deps
-        }
-        return deps
-
-
-    """
-    /**
      * 输出最终模版，插入css和js
+     * 插入规则：默认插入页面中的对应占位符，如果没有占位符，则css插入 </head> 之前，js插入 </body> 之前
+     * @param string html 初步render后的html
      */
     """
     def render_response(self, html):
+        css_html = '\n'.join([ self.get_style_tag(uri) for uri in self.style_deps ])
+        js_html  = '\n'.join([ self.get_script_tag(uri) for uri in self.script_deps ])
+
+        print css_html
+        print js_html
+
+        # 插入css
+        if html.find(MYAResource.STYLE_PLACEHOLDER) > -1:
+            html = html.replace(MYAResource.STYLE_PLACEHOLDER, css_html)
+        else:
+            html = html.replace('</head>', css_html + '</head>')
+
+        # 插入js
+        if html.find(MYAResource.SCRIPT_PLACEHOLDER) > -1:
+            html = html.replace(MYAResource.SCRIPT_PLACEHOLDER, js_html)
+        else:
+            html = html.replace('</body>', js_html + '</body>')
+
         return html
+
+
+    def get_style_tag(self, uri):
+        return '<link rel="stylesheet" href="%s" />' % (uri)
+
+
+    def get_script_tag(self, uri, crossorigin=False):
+        return '<script src="%s"></script>' % (uri)

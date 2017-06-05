@@ -24,9 +24,6 @@ def index(request):
     t = get_template('pages/index.html')
     c = Context(ctx)
     html = t.render(c)
-
-    print mya_resource.get_deps()
-
     html = mya_resource.render_response(html)
 
     return HttpResponse(html)
