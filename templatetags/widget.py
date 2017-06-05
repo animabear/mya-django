@@ -31,13 +31,13 @@ class WidgetNode(template.Node):
         name = params.get('name', '')
         mode = params.get('mode', '')
 
-        # 向下层 widget 传递 deps 和 map_data
-        ctx_params['_deps'] = deps = context.get('_deps', [])
-        ctx_params['_map_data'] = context.get('_map_data')
-        # todo: 分析并收集依赖
-        deps.append(name);
+        # 向下层 widget 传递 mya_resource
+        ctx_params['_mya_resource'] = mya_resource = context.get('_mya_resource')
 
-        t = get_template(name)
+        # 分析并收集依赖
+        mya_resource.loadDeps(name)
+        # 渲染模版
+        t = get_template(mya_resource.get_template_uri(name))
         html = t.render(Context( ctx_params ))
         return html
 
