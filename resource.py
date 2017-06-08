@@ -83,9 +83,6 @@ class MYAResource(object):
         css_html = '\n'.join([ self.get_style_tag(uri) for uri in self.style_deps ])
         js_html  = '\n'.join([ self.get_script_tag(uri) for uri in self.script_deps ])
 
-        print css_html
-        print js_html
-
         # 插入css
         if html.find(MYAResource.STYLE_PLACEHOLDER) > -1:
             html = html.replace(MYAResource.STYLE_PLACEHOLDER, css_html)
