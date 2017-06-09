@@ -8,6 +8,8 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from .resource import MYAResource
 
+from jinja2 import Template
+
 def index(request):
     # 读取静态资源映射表
     with open('templates/map.json') as map_file:
@@ -28,3 +30,13 @@ def index(request):
 
     return HttpResponse(html)
 
+
+def jinja2(request):
+    # template = Template('Hello {{ name }}!')
+    # html = template.render(name='animabear')
+
+    t = get_template('pages/jinja2.html')
+    c = Context({'name': '<script>animabear</script>'})
+    html = t.render(c)
+
+    return HttpResponse(html)
