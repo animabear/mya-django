@@ -33,10 +33,15 @@ def index(request):
 
 def jinja2(request):
     # template = Template('Hello {{ name }}!')
-    # html = template.render(name='animabear')
+    # html = template.render({'name': 'animabear'})
+
+    ctx = {
+        'name': '<script>animabear</script>',
+        '_mya_resource': {'a': 1}
+    }
 
     t = get_template('pages/jinja2.html')
-    c = Context({'name': '<script>animabear</script>'})
+    c = Context(ctx)
     html = t.render(c)
 
     return HttpResponse(html)
