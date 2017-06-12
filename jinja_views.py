@@ -1,22 +1,16 @@
 # coding=utf-8
 import json
 
-from django.shortcuts import render_to_response
-from django.template.loader import get_template
-from django.template import Context, RequestContext
 from django.http import HttpResponse
+from django.conf import settings
 from resource import MYAResource
+import jinja2
 
-from jinja2 import Template
+# extension
+from jinja.extension.widget import WidgetExtension
 
-def get_html_response(request, template, context={}):
-    return render_to_response(template, context, context_instance=RequestContext(request))
-
-
-# django
-def index(request):
-    return get_html_response(request, 'pages/index.html', {'name': 'animabear'})
-
+env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
+                        extensions=[WidgetExtension])
 
 # jinja
 def jinja2(request):
@@ -32,7 +26,7 @@ def jinja2(request):
         '_mya_resource': mya_resource
     }
 
-    t = get_template('pages/jinja2.html')
+    t = env.get_template('pages/jinja2.html')
     html = t.render(ctx)
     html = mya_resource.render_response(html)
 

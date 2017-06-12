@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 
 import views
+import jinja_views
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -17,5 +18,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^index/', views.index),
-    url(r'^jinja2/', views.jinja2)
+    url(r'^jinja2/', jinja_views.jinja2)
 )
