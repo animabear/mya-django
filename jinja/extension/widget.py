@@ -1,6 +1,15 @@
+# coding=utf-8
+
 from jinja2 import lexer, nodes, Template
 from jinja2.ext import Extension
 
+"""
+{% widget name="widget/header.html" mode="bigrender" kwarg1=arg1 kwarg2="string arg2" %}
+对于嵌套情况，解析顺序由外向内
+"""
+
+# widget标签的默认参数
+default_kwargs = ['name', 'mode']
 
 class WidgetExtension(Extension):
     # a set of names that trigger the extension.
@@ -9,23 +18,67 @@ class WidgetExtension(Extension):
     def __init__(self, environment):
         super(WidgetExtension, self).__init__(environment)
 
-
         # add the defaults to the environment
         # environment.extend(
         #     fragment_cache_prefix='',
         #     fragment_cache=None
         # )
 
+    @staticmethod
+    def parse_expression(parser):
+        token = parser.stream.current
+        if token.test(lexer.TOKEN_STRING):
+            expr = nodes.Const(token.value, lineno=token.lineno)
+            next(parser.stream)
+        else:
+            expr = parser.parse_expression(False)
+
+        return expr
+
     def parse(self, parser):
-        ctx_ref = nodes.ContextReference()
-        lineno = parser.stream.expect('name:widget').lineno
+        lineno  = next(parser.stream).lineno # parser.stream 是一个迭代器对象
+        kwargs = None
+
+        while parser.stream.current.type != lexer.TOKEN_BLOCK_END:
+            token = parser.stream.current
+            if kwargs is not None:
+                if token.type != lexer.TOKEN_NAME:
+                    parser.fail(
+                        "got '{}', expected name for keyword argument"
+                        "".format(lexer.describe_token(token)),
+                        lineno=token.lineno
+                    )
+                arg = token.value
+                next(parser.stream)
+                parser.stream.expect(lexer.TOKEN_ASSIGN) # 匹配到 '='，同时执行 next()
+                kwargs[arg] = self.parse_expression(parser)
+            else:
+                if parser.stream.look().type == lexer.TOKEN_ASSIGN:
+                    kwargs = {}
+                continue
+
+        if kwargs is not None:
+            kwargs = [nodes.Keyword(key, val) for key, val in kwargs.items()]
+
         call = self.call_method(
             '_widget',
-            [ctx_ref],
+            kwargs,
             lineno=lineno
         )
-        return nodes.Output([call])
 
-    def _widget(self, ctx):
-        html = self.environment.get_template('widget/common.html')
-        return html.render({'custom_param': ctx.get('name')})
+        return nodes.Output([call], lineno=lineno)
+
+    def _widget(self, **kwargs):
+        params = {}
+        ctx_params = {}
+
+        for key, val in kwargs.items():
+            if key in default_kwargs:
+                params[key] = val
+            else:
+                ctx_params[key] = val
+
+        name = params.get('name') # template name
+        mode = params.get('mode') # render mode
+        html = self.environment.get_template(name)
+        return html.render(ctx_params)

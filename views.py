@@ -37,11 +37,11 @@ def jinja2(request):
 
     ctx = {
         'name': '<script>animabear</script>',
+        'age': 25,
         '_mya_resource': {'a': 1}
     }
 
     t = get_template('pages/jinja2.html')
-    c = Context(ctx)
-    html = t.render(c)
+    html = t.render(ctx)
 
     return HttpResponse(html)

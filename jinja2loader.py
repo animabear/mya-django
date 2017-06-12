@@ -24,22 +24,24 @@ def guess_autoescape(template_name):
     if template_name is None or '.' not in template_name:
         return False
     ext = template_name.rsplit('.', 1)[1]
-    return ext in ('html', 'htm', 'xml')
+    return ext in ('html')
 
 
 class Template(jinja2.Template):
     def render(self, context):
         # flatten the Django Context into a single dictionary.
-        context_dict = {}
-        for d in context.dicts:
-            context_dict.update(d)
-        return super(Template, self).render(context_dict)
+        # context_dict = {}
+        # for d in context.dicts:
+        #     context_dict.update(d)
+        return super(Template, self).render(context)
 
 class Loader(BaseLoader):
     is_usable = True
-    env = jinja2.Environment(autoescape=guess_autoescape,
-                            loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
-                            extensions=['jinja2.ext.autoescape', WidgetExtension])
+    # env = jinja2.Environment(autoescape=guess_autoescape,
+    #                         loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
+    #                         extensions=['jinja2.ext.autoescape', WidgetExtension])
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
+                            extensions=[WidgetExtension])
     env.template_class = Template
 
     # These are available to all templates.

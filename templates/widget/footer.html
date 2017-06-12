@@ -1,6 +1,4 @@
-{% load widget from widget %}
-
 <div class="footer">
     {% widget name="widget/common.html" mode="test" custom_param=username %}
-    footer {{ username }} {{ age }}
+    footer {{ username|e }} {{ age }}
 </div>
