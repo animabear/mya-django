@@ -3,5 +3,8 @@
 {% block content %}
     <p>hello {{ name|e }}</p>
     {% widget name="widget/header.html" mode="test" %}
+    {% if user.username %}
+    {% widget name="widget/user.html" mode="test" user=user %}
+    {% endif %}
     {% widget name="widget/footer.html" mode="test" username=name age=age %}
 {% endblock %}

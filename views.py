@@ -29,6 +29,10 @@ def jinja2(request):
     ctx = {
         'name': '<script>animabear</script>',
         'age': '25',
+        'user': {
+            'username': 'xjj',
+            'age':  25
+        },
         '_mya_resource': mya_resource
     }
 
