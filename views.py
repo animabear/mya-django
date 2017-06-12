@@ -6,7 +6,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.template import RequestContext
 from django.http import HttpResponse
-from .resource import MYAResource
+from resource import MYAResource
 
 from jinja2 import Template
 
