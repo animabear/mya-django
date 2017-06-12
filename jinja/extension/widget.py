@@ -5,7 +5,7 @@ from jinja2.ext import Extension
 
 """
 {% widget name="widget/header.html" mode="bigrender" kwarg1=arg1 kwarg2="string arg2" %}
-对于嵌套情况，解析顺序由外向内
+对于嵌套情况，解析顺序自顶向下
 """
 
 # widget标签的默认参数
@@ -38,6 +38,7 @@ class WidgetExtension(Extension):
     def parse(self, parser):
         lineno  = next(parser.stream).lineno # parser.stream 是一个迭代器对象
         kwargs = None
+        cur_ctx = nodes.ContextReference() # 当前上下文
 
         while parser.stream.current.type != lexer.TOKEN_BLOCK_END:
             token = parser.stream.current
@@ -62,13 +63,15 @@ class WidgetExtension(Extension):
 
         call = self.call_method(
             '_widget',
+            [cur_ctx],
             kwargs,
             lineno=lineno
         )
 
         return nodes.Output([call], lineno=lineno)
 
-    def _widget(self, **kwargs):
+    def _widget(self, *args, **kwargs):
+        cur_ctx = args[0]
         params = {}
         ctx_params = {}
 
@@ -80,5 +83,13 @@ class WidgetExtension(Extension):
 
         name = params.get('name') # template name
         mode = params.get('mode') # render mode
-        html = self.environment.get_template(name)
-        return html.render(ctx_params)
+
+        # 向下层 widget 传递 mya_resource
+        ctx_params['_mya_resource'] = mya_resource = cur_ctx.get('_mya_resource')
+        # 分析并收集依赖
+        mya_resource.load_deps(name)
+        # 渲染模版
+        t = self.environment.get_template(mya_resource.get_template_path(name))
+        html = t.render(ctx_params)
+
+        return html

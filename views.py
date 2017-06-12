@@ -35,13 +35,20 @@ def jinja2(request):
     # template = Template('Hello {{ name }}!')
     # html = template.render({'name': 'animabear'})
 
+    # 读取静态资源映射表
+    with open('templates/map.json') as map_file:
+        res_map = json.load(map_file)
+
+    mya_resource = MYAResource(res_map)
+
     ctx = {
         'name': '<script>animabear</script>',
-        'age': 25,
-        '_mya_resource': {'a': 1}
+        'age': '25',
+        '_mya_resource': mya_resource
     }
 
     t = get_template('pages/jinja2.html')
     html = t.render(ctx)
+    html = mya_resource.render_response(html)
 
     return HttpResponse(html)
