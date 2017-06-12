@@ -2,8 +2,8 @@
 import re
 
 class MYAResource(object):
-    SCRIPT_PLACEHOLDER = '<!--SCRIPT_PLACEHOLDER-->'
-    STYLE_PLACEHOLDER  = '<!--STYLE_PLACEHOLDER-->'
+    SCRIPT_PLACEHOLDER_PTN = re.compile(r'<!--\s*SCRIPT_PLACEHOLDER\s*-->')
+    STYLE_PLACEHOLDER_PTN  = re.compile(r'<!--\s*STYLE_PLACEHOLDER\s*-->')
 
     """
     /**
@@ -84,14 +84,14 @@ class MYAResource(object):
         js_html  = '\n'.join([ self.get_script_tag(uri) for uri in self.script_deps ])
 
         # 插入css
-        if html.find(MYAResource.STYLE_PLACEHOLDER) > -1:
-            html = html.replace(MYAResource.STYLE_PLACEHOLDER, css_html)
+        if MYAResource.STYLE_PLACEHOLDER_PTN.search(html):
+            html = re.sub(MYAResource.STYLE_PLACEHOLDER_PTN, css_html, html)
         else:
             html = html.replace('</head>', css_html + '</head>')
 
         # 插入js
-        if html.find(MYAResource.SCRIPT_PLACEHOLDER) > -1:
-            html = html.replace(MYAResource.SCRIPT_PLACEHOLDER, js_html)
+        if MYAResource.SCRIPT_PLACEHOLDER_PTN.search(html):
+            html = re.sub(MYAResource.SCRIPT_PLACEHOLDER_PTN, js_html, html)
         else:
             html = html.replace('</body>', js_html + '</body>')
 
