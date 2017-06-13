@@ -4,17 +4,17 @@ from jinja2 import lexer, nodes, Template
 from jinja2.ext import Extension
 
 """
-{% widget name="widget/header.html" mode="bigrender" kwarg1=arg1 kwarg2="string arg2" %}
+{% component name="component/header.html" mode="bigrender" kwarg1=arg1 kwarg2="string arg2" %}
 
 自定义组件标签，渲染组件模版，收集依赖；支持嵌套，对于嵌套情况，解析顺序自顶向下
 """
 
-# widget标签的默认参数
+# component标签的默认参数
 default_kwargs = ['name', 'mode']
 
 class WidgetExtension(Extension):
     # a set of names that trigger the extension.
-    tags = set(['widget'])
+    tags = set(['component', 'comp'])
 
     def __init__(self, environment):
         super(WidgetExtension, self).__init__(environment)

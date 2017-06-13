@@ -4,12 +4,12 @@
     <p>This is a jinja template!</p>
     <p>hello {{ name | e }}</p>
     {% if not name %}
-    {% widget name="widget/header.html" mode="test" %}
+    {% comp name="widget/header.html" mode="test" %}
     {% endif %}
     {% if user.username %}
-    {% widget name="widget/user.html" mode="test" user=user %}
+    {% comp name="widget/user.html" mode="test" user=user %}
     {% endif %}
-    {% widget name="widget/footer.html" mode="test" username=name age=age %}
+    {% comp name="widget/footer.html" mode="test" username=name age=age %}
 {% endblock %}
 
 
