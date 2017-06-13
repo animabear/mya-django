@@ -5,7 +5,8 @@ from jinja2.ext import Extension
 
 """
 {% widget name="widget/header.html" mode="bigrender" kwarg1=arg1 kwarg2="string arg2" %}
-对于嵌套情况，解析顺序自顶向下
+
+自定义组件标签，渲染组件模版，收集依赖；支持嵌套，对于嵌套情况，解析顺序自顶向下
 """
 
 # widget标签的默认参数

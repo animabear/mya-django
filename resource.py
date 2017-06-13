@@ -12,9 +12,10 @@ class MYAResource(object):
     """
     def __init__(self, res_map):
         self.res_map = res_map
-        self.style_deps = []  # 样式依赖
+        self.style_deps  = [] # 样式依赖
         self.script_deps = [] # 脚本依赖
-
+        self.style_pool  = [] # 收集 {% style %}{% endstyle %} 标签包裹的css
+        self.script_pool = [] # 收集 {% script %}{% endscript %} 标签包裹的js
 
     """
     /**
@@ -38,29 +39,23 @@ class MYAResource(object):
 
         self.add_deps(uri, file_type)
 
-
     def add_deps(self, uri, file_type):
         if self.is_script_can_add(uri, file_type):
             self.script_deps.append(uri)
         if self.is_style_can_add(uri, file_type):
             self.style_deps.append(uri)
 
-
     def is_script_can_add(self, uri, file_type):
         return uri and self.is_script(file_type) and uri not in self.script_deps
-
 
     def is_style_can_add(self, uri, file_type):
         return uri and self.is_style(file_type) and uri not in self.style_deps
 
-
     def is_script(self, file_type):
         return file_type == 'js'
 
-
     def is_style(self, file_type):
         return file_type == 'css'
-
 
     """
     /**
@@ -70,7 +65,6 @@ class MYAResource(object):
     """
     def get_template_path(self, name):
         return self.res_map.get('res', {}).get(name, {}).get('uri', name)
-
 
     """
     /**
@@ -82,6 +76,13 @@ class MYAResource(object):
     def render_response(self, html):
         css_html = '\n'.join([ self.get_style_tag(uri) for uri in self.style_deps ])
         js_html  = '\n'.join([ self.get_script_tag(uri) for uri in self.script_deps ])
+
+        if self.style_pool:
+            css_html += '\n'.join(self.style_pool)
+
+        if self.script_pool:
+            js_html += '\n'.join(self.script_pool)
+
 
         # 插入css
         if MYAResource.STYLE_PLACEHOLDER_PTN.search(html):
@@ -97,10 +98,15 @@ class MYAResource(object):
 
         return html
 
-
     def get_style_tag(self, uri):
         return '<link rel="stylesheet" href="%s" />' % (uri)
 
-
     def get_script_tag(self, uri, crossorigin=False):
         return '<script src="%s"></script>' % (uri)
+
+    def add_style_pool(self, style):
+        self.style_pool.append(style)
+
+    def add_script_pool(self, script):
+        self.script_pool.append(script)
+

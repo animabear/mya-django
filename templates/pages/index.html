@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    <p>This is a django template!</p>
     <p>hello {{ name }}</p>
+
+    <script type="text/javascript">
+        var a = {{ user|safe }};
+        console.log(a)
+    </script>
 {% endblock %}

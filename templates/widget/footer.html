@@ -3,3 +3,9 @@
     {% widget name="widget/common.html" mode="test" custom_param=username %}
     {{ username|e }} : {{ age }}
 </div>
+
+{% script %}
+<script>
+console.log({{ age }})
+</script>
+{% endscript %}

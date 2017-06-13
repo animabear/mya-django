@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <p>hello {{ name|e }}</p>
+    <p>This is a jinja template!</p>
+    <p>hello {{ name | e }}</p>
+    {% if not name %}
     {% widget name="widget/header.html" mode="test" %}
+    {% endif %}
     {% if user.username %}
     {% widget name="widget/user.html" mode="test" user=user %}
     {% endif %}

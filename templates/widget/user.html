@@ -2,3 +2,12 @@
     <p>user: </p>
     My name is {{ user.username }}, I'm a {{ user.age }}
 </div>
+{% script %}
+<script>
+    {% if user %}
+    var user = {{ user }};
+    console.log('user: ', user)
+    // require('widget/header/header.js').create({{ user }});
+    {% endif %}
+</script>
+{% endscript %}

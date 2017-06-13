@@ -8,9 +8,10 @@ import jinja2
 
 # extension
 from jinja.extension.widget import WidgetExtension
+from jinja.extension.script import ScriptExtension
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
-                        extensions=[WidgetExtension])
+                        extensions=[WidgetExtension, ScriptExtension])
 
 # jinja
 def jinja2(request):

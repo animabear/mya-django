@@ -15,7 +15,13 @@ def get_html_response(request, template, context={}):
 
 # django
 def index(request):
-    return get_html_response(request, 'pages/index.html', {'name': 'animabear'})
+    return get_html_response(request, 'pages/index.html', {
+        'name': 'animabear',
+        'user': {
+            'username': 'xjj',
+            'age':  25
+        }
+    })
 
 
 # jinja
