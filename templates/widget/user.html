@@ -2,6 +2,16 @@
     <p>user: </p>
     My name is {{ user.username }}, I'm a {{ user.age }}
 </div>
+
+{% style %}
+<style>
+.user {
+    background: red
+}
+</style>
+{% endstyle %}
+
+
 {% script %}
 <script>
     {% if user %}
