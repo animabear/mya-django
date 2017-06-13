@@ -36,7 +36,7 @@ def jinja2(request):
         'name': '<script>animabear</script>',
         'age': '25',
         'user': {
-            'username': 'xjj',
+            'username': '<script>xjj</script>',
             'age':  25
         },
         '_mya_resource': mya_resource

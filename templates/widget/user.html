@@ -1,6 +1,6 @@
 <div class="user">
     <p>user: </p>
-    My name is {{ user.username }}, I'm a {{ user.age }}
+    My name is {{ user.username|e }}, I'm a {{ user.age }}
 </div>
 
 {% style %}
@@ -11,9 +11,7 @@
 
 
 {% script %}
-    {% if user %}
-    var a = {{ user }};
-    console.log(a)
+    var a = {{ user|jsonify }};
+    console.log(a.username)
     {# require('widget/header/header.js').create({{ user }});#}
-    {% endif %}
 {% endscript %}

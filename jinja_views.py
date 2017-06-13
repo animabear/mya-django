@@ -10,9 +10,12 @@ import jinja2
 from jinja.extension.widget import WidgetExtension
 from jinja.extension.script import ScriptExtension
 from jinja.extension.style  import StyleExtension
+from jinja.extension.filter import jsonify
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
                         extensions=[WidgetExtension, ScriptExtension, StyleExtension])
+
+jinja2.filters.FILTERS['jsonify'] = jsonify
 
 # jinja
 def jinja2(request):
@@ -26,7 +29,7 @@ def jinja2(request):
         'name': '<script>animabear</script>',
         'age': '25',
         'user': {
-            'username': 'xjj',
+            'username': u'<script>熊猫大侠</script>',
             'age':  25
         },
         '_mya_resource': mya_resource
