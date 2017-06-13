@@ -78,11 +78,10 @@ class MYAResource(object):
         js_html  = '\n'.join([ self.get_script_tag(uri) for uri in self.script_deps ])
 
         if self.style_pool:
-            css_html += '\n'.join(self.style_pool)
+            css_html += self.render_style_pool()
 
         if self.script_pool:
-            js_html += '\n'.join(self.script_pool)
-
+            js_html += self.render_script_pool()
 
         # 插入css
         if MYAResource.STYLE_PLACEHOLDER_PTN.search(html):
@@ -104,9 +103,17 @@ class MYAResource(object):
     def get_script_tag(self, uri, crossorigin=False):
         return '<script src="%s"></script>' % (uri)
 
+    def render_style_pool(self):
+        return '\n<style>' + '\n'.join(self.style_pool) + '\n</style>\n'
+
+    def render_script_pool(self):
+        script = '';
+        for item in self.script_pool:
+            script += '\n<script type="text/javascript">(function() {' + item + '})();\n</script>\n'
+        return script
+
     def add_style_pool(self, style):
         self.style_pool.append(style)
 
     def add_script_pool(self, script):
         self.script_pool.append(script)
-

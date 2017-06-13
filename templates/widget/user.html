@@ -4,20 +4,16 @@
 </div>
 
 {% style %}
-<style>
 .user {
     background: red
 }
-</style>
 {% endstyle %}
 
 
 {% script %}
-<script>
     {% if user %}
-    var user = {{ user }};
-    console.log('user: ', user)
-    // require('widget/header/header.js').create({{ user }});
+    var a = {{ user }};
+    console.log(a)
+    {# require('widget/header/header.js').create({{ user }});#}
     {% endif %}
-</script>
 {% endscript %}

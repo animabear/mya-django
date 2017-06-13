@@ -5,9 +5,7 @@ from jinja2.ext import Extension
 
 """
 {% script %}
-<script>
     require('widget/xxx').init({{ data }})
-</script>
 {% endscript %}
 
 自定义script标签，收集script，用于最后插入

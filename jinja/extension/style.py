@@ -5,9 +5,7 @@ from jinja2.ext import Extension
 
 """
 {% style %}
-<style>
     .widget { color: red }
-</style>
 {% endstyle %}
 
 自定义style标签，收集style，用于最后插入
@@ -24,7 +22,7 @@ class StyleExtension(Extension):
         lineno  = parser.stream.expect('name:style').lineno # {% style
         cur_ctx = nodes.ContextReference() # 当前上下文
         body    = []
-        style  = ''
+        style   = ''
         end     = False # flag 标记是否即将结束渲染
         args    = []
 
