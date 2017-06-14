@@ -4,6 +4,12 @@
     {{ username|e }} : {{ age }}
 </div>
 
+{% style %}
+.footer {
+    background: blue
+}
+{% endstyle %}
+
 {% script %}
 console.log({{ age }})
 {% endscript %}

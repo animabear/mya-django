@@ -1,1 +1,4 @@
 *.pyc
+webroot
+templates/template
+static/

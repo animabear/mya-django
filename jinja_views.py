@@ -40,3 +40,28 @@ def jinja2(request):
     html = mya_resource.render_response(html)
 
     return HttpResponse(html)
+
+
+# home
+def home(request):
+    # 读取静态资源映射表
+    with open('templates/template/map.json') as map_file:
+        res_map = json.load(map_file)
+
+    mya_resource = MYAResource(res_map)
+
+    ctx = {
+        'name': '<script>animabear</script>',
+        'age': '25',
+        'user': {
+            'username': u'<script>熊猫大侠</script>',
+            'age':  25
+        },
+        '_mya_resource': mya_resource
+    }
+
+    t = env.get_template('template/page/home/index.html')
+    html = t.render(ctx)
+    html = mya_resource.render_response(html)
+
+    return HttpResponse(html)
