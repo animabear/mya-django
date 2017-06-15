@@ -12,6 +12,7 @@ class MYAResource(object):
     """
     def __init__(self, res_map):
         self.res_map = res_map
+        self.loaded_deps = [] # 已添加的依赖
         self.style_deps  = [] # 样式依赖
         self.script_deps = [] # 脚本依赖
         self.style_pool  = [] # 收集 {% style %}{% endstyle %} 标签包裹的css
@@ -20,24 +21,50 @@ class MYAResource(object):
     """
     /**
      * 分析组件依赖 (深度优先后序遍历)
-     * @param string name 文件名字
+     * @param string res_id 资源id
      */
     """
-    def load_deps(self, name):
+    def load_deps(self, res_id):
         res = self.res_map.get('res', {})
-        file_data = res.get(name, {})
-        file_type = file_data.get('type')
-        uri       = file_data.get('uri')
-        deps      = file_data.get('deps', [])
+        pkg = self.res_map.get('pkg', {})
+        res_data  = res.get(res_id, {})
+        file_type = res_data.get('type')
+        uri       = res_data.get('uri')
+        deps      = res_data.get('deps', [])
 
-        if not len(deps):
-            self.add_deps(uri, file_type)
+        if res_id in self.loaded_deps: # 已经加载过的资源直接跳过
             return
 
-        for dep in deps:
-            self.load_deps(dep)
+        if res_data.get('pkg'):
+            pkg_data = pkg.get(res_data.get('pkg'))
+            pkg_deps = pkg_data.get('deps', [])
+            pkg_has  = pkg_data.get('has', [])
+            pkg_uri  = pkg_data.get('uri')
+            pkg_type = pkg_data.get('type')
 
-        self.add_deps(uri, file_type)
+            for item in pkg_has: # 将 pkg 拥有的模块加入到 loaded_deps 中
+                if item not in self.loaded_deps:
+                    self.loaded_deps.append(item)
+
+            if not len(pkg_deps):
+                self.add_deps(pkg_uri, pkg_type)
+                return
+
+            for dep in pkg_deps:
+                self.load_deps(dep)
+
+            self.add_deps(pkg_uri, pkg_type)
+
+        else:
+
+            if not len(deps):
+                self.add_deps(uri, file_type)
+                return
+
+            for dep in deps:
+                self.load_deps(dep)
+
+            self.add_deps(uri, file_type)
 
     def add_deps(self, uri, file_type):
         if self.is_script_can_add(uri, file_type):
