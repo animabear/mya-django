@@ -1,19 +1,5 @@
 # coding=utf-8
-from django.conf import settings
 from jinja.render_util import get_html_response
-
-# jinja2 extension
-import jinja2
-from jinja.extension.widget import WidgetExtension
-from jinja.extension.script import ScriptExtension
-from jinja.extension.style  import StyleExtension
-from jinja.extension.filter import jsonify
-
-env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
-                        extensions=[WidgetExtension, ScriptExtension, StyleExtension])
-
-jinja2.filters.FILTERS['jsonify'] = jsonify
-# end
 
 # pages
 def jinja2(request):
@@ -25,7 +11,7 @@ def jinja2(request):
             'age':  25
         }
     }
-    return get_html_response(request, 'pages/jinja2.html', ctx, env)
+    return get_html_response(request, 'pages/jinja2.html', ctx)
 
 
 def home(request):
@@ -37,4 +23,4 @@ def home(request):
             'age':  25
         }
     }
-    return get_html_response(request, 'template@page/home/index.html', ctx, env)
+    return get_html_response(request, 'template@page/home/index.html', ctx)
