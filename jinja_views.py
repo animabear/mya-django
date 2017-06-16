@@ -1,9 +1,9 @@
 # coding=utf-8
-import jinja2
 from django.conf import settings
 from jinja.render_util import get_html_response
 
-# extension
+# jinja2 extension
+import jinja2
 from jinja.extension.widget import WidgetExtension
 from jinja.extension.script import ScriptExtension
 from jinja.extension.style  import StyleExtension
@@ -13,8 +13,9 @@ env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
                         extensions=[WidgetExtension, ScriptExtension, StyleExtension])
 
 jinja2.filters.FILTERS['jsonify'] = jsonify
+# end
 
-# jinja
+# pages
 def jinja2(request):
     ctx = {
         'name': '<script>animabear</script>',
@@ -27,7 +28,6 @@ def jinja2(request):
     return get_html_response(request, 'pages/jinja2.html', ctx, env)
 
 
-# home
 def home(request):
     ctx = {
         'name': '<script>animabear</script>',
