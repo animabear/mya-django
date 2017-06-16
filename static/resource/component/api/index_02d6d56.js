@@ -1,0 +1,1 @@
+define("component/api/index",function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=(e("component/const/user"),"/aweme/op/api");t.default={SEARCH_USERS:n+"/user/search/",GET_SEARCH_LIST:n+"/item/items/"}});

@@ -1,0 +1,1 @@
+define("page/home/index",function(e,n){"use strict";function o(){console.log("home page")}Object.defineProperty(n,"__esModule",{value:!0}),n.init=o});

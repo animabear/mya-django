@@ -1,0 +1,13 @@
+{% extends "template/page/layout.html" %}
+
+{% block content %}
+    {% comp name="component/common/header/index.html" user=user %}
+    {% comp name="component/common/footer/index.html" user=user %}
+
+    {% comp name="component/home/comp1/index.html" %}
+    {% comp name="component/home/comp2/index.html" %}
+
+    {% script %}
+    require('page/home/index').init()
+    {% endscript %}
+{% endblock %}

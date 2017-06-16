@@ -1,0 +1,1 @@
+define("page/home/index",function(e,t){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}function o(){console.log("home page"),i.default.getQueryStr()}Object.defineProperty(t,"__esModule",{value:!0}),t.init=o;var u=e("component/util/url"),i=n(u)});

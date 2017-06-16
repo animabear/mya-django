@@ -1,0 +1,8 @@
+<div class="header">
+    <p>header: {{ user.name|e }}</p>
+    {% comp name="component/common/button/index.html" %}
+</div>
+
+{% script %}
+require('component/common/header/index').init({{ user|jsonify }});
+{% endscript %}

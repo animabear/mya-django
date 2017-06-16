@@ -1,0 +1,234 @@
+{
+    "res": {
+        "component/api/index.js": {
+            "uri": "/static/resource/component/api/index_02d6d56.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component/api/index"
+            },
+            "deps": [
+                "component/const/user.js"
+            ],
+            "pkg": "p0"
+        },
+        "component/common/button/index.html": {
+            "uri": "/template/component/common/button/index.html",
+            "type": "html",
+            "deps": [
+                "component/common/button/index.scss"
+            ]
+        },
+        "component/common/button/index.scss": {
+            "uri": "/static/resource/component/common/button/index_4cf861b.css",
+            "type": "css",
+            "pkg": "p1"
+        },
+        "component/common/footer/index.html": {
+            "uri": "/template/component/common/footer/index.html",
+            "type": "html",
+            "deps": [
+                "component/common/footer/index.js",
+                "component/common/footer/index.scss"
+            ]
+        },
+        "component/common/footer/index.js": {
+            "uri": "/static/resource/component/common/footer/index_21a0098.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component/common/footer/index"
+            },
+            "deps": [
+                "component/util/index.js"
+            ],
+            "pkg": "p0"
+        },
+        "component/common/footer/index.scss": {
+            "uri": "/static/resource/component/common/footer/index_7327a7e.css",
+            "type": "css",
+            "pkg": "p1"
+        },
+        "component/common/header/index.html": {
+            "uri": "/template/component/common/header/index.html",
+            "type": "html",
+            "deps": [
+                "component/common/header/index.js",
+                "component/common/header/index.scss"
+            ]
+        },
+        "component/common/header/index.js": {
+            "uri": "/static/resource/component/common/header/index_52474a8.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component/common/header/index"
+            },
+            "deps": [
+                "component/util/index.js"
+            ],
+            "pkg": "p0"
+        },
+        "component/common/header/index.scss": {
+            "uri": "/static/resource/component/common/header/index_f7e6acb.css",
+            "type": "css",
+            "pkg": "p1"
+        },
+        "component/const/user.js": {
+            "uri": "/static/resource/component/const/user_b129044.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component/const/user"
+            },
+            "pkg": "p0"
+        },
+        "component/home/comp1/index.html": {
+            "uri": "/template/component/home/comp1/index.html",
+            "type": "html",
+            "deps": [
+                "component/home/comp1/index.js",
+                "component/home/comp1/index.scss"
+            ]
+        },
+        "component/home/comp1/index.js": {
+            "uri": "/static/resource/component/home/comp1/index_1b36d09.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component/home/comp1/index"
+            },
+            "deps": [
+                "component/util/index.js",
+                "component/api/index.js"
+            ],
+            "pkg": "p2"
+        },
+        "component/home/comp1/index.scss": {
+            "uri": "/static/resource/component/home/comp1/index_d038aea.css",
+            "type": "css",
+            "pkg": "p3"
+        },
+        "component/home/comp2/index.html": {
+            "uri": "/template/component/home/comp2/index.html",
+            "type": "html",
+            "deps": [
+                "component/home/comp2/index.js",
+                "component/home/comp2/index.scss"
+            ]
+        },
+        "component/home/comp2/index.js": {
+            "uri": "/static/resource/component/home/comp2/index_3117cc8.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component/home/comp2/index"
+            },
+            "deps": [
+                "component/util/index.js"
+            ],
+            "pkg": "p2"
+        },
+        "component/home/comp2/index.scss": {
+            "uri": "/static/resource/component/home/comp2/index_cc9c549.css",
+            "type": "css",
+            "pkg": "p3"
+        },
+        "component/util/index.js": {
+            "uri": "/static/resource/component/util/index_4a28c46.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component/util/index"
+            },
+            "pkg": "p0"
+        },
+        "component/util/url.js": {
+            "uri": "/static/resource/component/util/url_c006e8c.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component/util/url"
+            },
+            "pkg": "p0"
+        },
+        "page/home/index.html": {
+            "uri": "/template/page/home/index.html",
+            "type": "html",
+            "deps": [
+                "page/home/index.js",
+                "page/home/index.less"
+            ]
+        },
+        "page/home/index.js": {
+            "uri": "/static/resource/page/home/index_eb80030.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "page/home/index"
+            },
+            "deps": [
+                "component/util/url.js"
+            ],
+            "pkg": "p2"
+        },
+        "page/home/index.less": {
+            "uri": "/static/resource/page/home/index_3564030.css",
+            "type": "css",
+            "pkg": "p3"
+        },
+        "static/css/normalize.css": {
+            "uri": "/static/resource/static/css/normalize_bfcc33a.css",
+            "type": "css"
+        },
+        "static/js/mod.js": {
+            "uri": "/static/resource/static/js/mod_9528f52.js",
+            "type": "js"
+        },
+        "page/layout.html": {
+            "uri": "/template/page/layout.html",
+            "type": "html"
+        },
+        "static/js/zepto.js": {
+            "uri": "/static/resource/static/js/zepto_602a7da.js",
+            "type": "js"
+        }
+    },
+    "pkg": {
+        "p0": {
+            "uri": "/static/resource/page/common_41245a6.js",
+            "type": "js",
+            "has": [
+                "component/const/user.js",
+                "component/api/index.js",
+                "component/util/index.js",
+                "component/common/footer/index.js",
+                "component/common/header/index.js",
+                "component/util/url.js"
+            ]
+        },
+        "p1": {
+            "uri": "/static/resource/page/common_8f2822a.css",
+            "type": "css",
+            "has": [
+                "component/common/button/index.scss",
+                "component/common/footer/index.scss",
+                "component/common/header/index.scss"
+            ]
+        },
+        "p2": {
+            "uri": "/static/resource/page/home_ba1fa16.js",
+            "type": "js",
+            "has": [
+                "component/home/comp1/index.js",
+                "component/home/comp2/index.js",
+                "page/home/index.js"
+            ],
+            "deps": [
+                "component/util/index.js",
+                "component/api/index.js",
+                "component/util/url.js"
+            ]
+        },
+        "p3": {
+            "uri": "/static/resource/page/home_7276db1.css",
+            "type": "css",
+            "has": [
+                "component/home/comp1/index.scss",
+                "component/home/comp2/index.scss",
+                "page/home/index.less"
+            ]
+        }
+    }
+}

@@ -1,0 +1,1 @@
+define("component/const/user",function(e,n){"use strict";Object.defineProperty(n,"__esModule",{value:!0});n.USER_AGE={1:"小学",2:"中学",3:"大学",4:"其他"},n.USER_LEVEL={1:"核心",2:"活跃",3:"小白",4:"其他"},n.USER_OPERATOR={0:"无",1:"王佳",2:"刘瑞芳",3:"蒋志鹏",4:"曹雪静",5:"王实龙",6:"罗红云"}});

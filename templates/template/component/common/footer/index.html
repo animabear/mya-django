@@ -1,0 +1,14 @@
+<div class="footer">
+    <p>footer: {{ user.age }} </p>
+    {% comp name="component/common/button/index.html" text=user.age %}
+</div>
+
+{% style %}
+.footer {
+    color: blue
+}
+{% endstyle %}
+
+{% script %}
+require('component/common/footer/index').init('{{ user.username|e }}');
+{% endscript %}

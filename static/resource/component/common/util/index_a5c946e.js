@@ -1,0 +1,1 @@
+define("component/common/util/index",function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});t.test=function(){console.log("test")},t.test2=function(){console.log("test2")}});

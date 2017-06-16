@@ -1,5 +1,3 @@
 *.pyc
 webroot
-templates/template
-static/
 deploy.sh

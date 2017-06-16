@@ -1,0 +1,1 @@
+define("component/util/url",function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={getQueryStr:function(){console.log(location.search)}}});
