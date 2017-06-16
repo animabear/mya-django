@@ -1,10 +1,7 @@
 # coding=utf-8
-import json
-
-from django.http import HttpResponse
-from django.conf import settings
-from resource import MYAResource
 import jinja2
+from django.conf import settings
+from jinja.render_util import get_html_response
 
 # extension
 from jinja.extension.widget import WidgetExtension
@@ -19,49 +16,25 @@ jinja2.filters.FILTERS['jsonify'] = jsonify
 
 # jinja
 def jinja2(request):
-    # 读取静态资源映射表
-    with open('templates/map.json') as map_file:
-        res_map = json.load(map_file)
-
-    mya_resource = MYAResource(res_map)
-
     ctx = {
         'name': '<script>animabear</script>',
         'age': '25',
         'user': {
             'username': u'<script>熊猫大侠</script>',
             'age':  25
-        },
-        '_mya_resource': mya_resource
+        }
     }
-
-    t = env.get_template('pages/jinja2.html')
-    html = t.render(ctx)
-    html = mya_resource.render_response(html)
-
-    return HttpResponse(html)
+    return get_html_response(request, 'pages/jinja2.html', ctx, env)
 
 
 # home
 def home(request):
-    # 读取静态资源映射表
-    with open('templates/template/map.json') as map_file:
-        res_map = json.load(map_file)
-
-    mya_resource = MYAResource(res_map)
-
     ctx = {
         'name': '<script>animabear</script>',
         'age': '25',
         'user': {
             'username': u'<script>熊猫大侠</script>',
             'age':  25
-        },
-        '_mya_resource': mya_resource
+        }
     }
-    t = env.get_template('template/page/home/index.html')
-    html = t.render(ctx)
-    mya_resource.load_page('page/home/index.html')
-    html = mya_resource.render_response(html)
-
-    return HttpResponse(html)
+    return get_html_response(request, 'template@page/home/index.html', ctx, env)
