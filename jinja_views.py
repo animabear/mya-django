@@ -59,9 +59,9 @@ def home(request):
         },
         '_mya_resource': mya_resource
     }
-
     t = env.get_template('template/page/home/index.html')
     html = t.render(ctx)
+    mya_resource.load_page('page/home/index.html')
     html = mya_resource.render_response(html)
 
     return HttpResponse(html)

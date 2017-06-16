@@ -20,6 +20,20 @@ class MYAResource(object):
 
     """
     /**
+     * 加载页面，获得入口页面依赖的资源文件
+     * @param string res_id 页面资源id
+     */
+    """
+    def load_page(self, res_id):
+        res = self.res_map.get('res', {})
+        res_data = res.get(res_id, {})
+        deps     = res_data.get('deps', [])
+
+        for dep in deps:
+            self.load_deps(dep)
+
+    """
+    /**
      * 分析组件依赖 (深度优先后序遍历)
      * @param string res_id 资源id
      */
