@@ -150,7 +150,8 @@ class MYAResource(object):
     def render_script_pool(self):
         script = '';
         for item in self.script_pool:
-            script += '\n<script type="text/javascript">(function() {' + item + '})();\n</script>\n'
+            script += '(function() {' + item + '\n})();\n'
+        script = '\n<script type="text/javascript">\n' + script + '</script>\n'
         return script
 
     def add_style_pool(self, style):

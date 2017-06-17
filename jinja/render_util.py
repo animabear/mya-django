@@ -30,7 +30,7 @@ except:
                        即 template_base@template_path  eg. 'template/aweme_web@page/home/index.html'
 @param dict   context  模版变量
 """
-def get_html_response(request, template, context={}):
+def view(request, template, context={}):
     template_data = template.split('@')
     if len(template_data) == 1:
         template_base = ''

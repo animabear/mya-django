@@ -168,6 +168,10 @@
             "type": "css",
             "pkg": "p3"
         },
+        "page/layout.html": {
+            "uri": "/template/page/layout.html",
+            "type": "html"
+        },
         "static/css/normalize.css": {
             "uri": "/static/resource/static/css/normalize_bfcc33a.css",
             "type": "css"
@@ -175,10 +179,6 @@
         "static/js/mod.js": {
             "uri": "/static/resource/static/js/mod_9528f52.js",
             "type": "js"
-        },
-        "page/layout.html": {
-            "uri": "/template/page/layout.html",
-            "type": "html"
         },
         "static/js/zepto.js": {
             "uri": "/static/resource/static/js/zepto_602a7da.js",

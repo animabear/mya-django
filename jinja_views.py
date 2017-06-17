@@ -1,5 +1,5 @@
 # coding=utf-8
-from jinja.render_util import get_html_response
+from jinja.render_util import view
 
 # pages
 def jinja2(request):
@@ -11,7 +11,7 @@ def jinja2(request):
             'age':  25
         }
     }
-    return get_html_response(request, 'pages/jinja2.html', ctx)
+    return view(request, 'pages/jinja2.html', ctx)
 
 
 def home(request):
@@ -23,4 +23,4 @@ def home(request):
             'age':  25
         }
     }
-    return get_html_response(request, 'template@page/home/index.html', ctx)
+    return view(request, 'template@page/home/index.html', ctx)
