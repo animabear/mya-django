@@ -11,10 +11,11 @@ from resource import MYAResource
 from jinja.extension.widget import WidgetExtension
 from jinja.extension.script import ScriptExtension
 from jinja.extension.style  import StyleExtension
+from jinja.extension.html   import HtmlExtension, HtmlClostExtension
 from jinja.extension.filter import jsonify
 
 j2_env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
-                        extensions=[WidgetExtension, ScriptExtension, StyleExtension])
+                        extensions=[WidgetExtension, ScriptExtension, StyleExtension, HtmlExtension, HtmlClostExtension])
 
 jinja2.filters.FILTERS['jsonify'] = jsonify
 # end extension
