@@ -64,8 +64,8 @@ class HtmlExtension(Extension):
 
     def _html(self, *args, **kwargs):
         cur_ctx = args[0]
-        framework = kwargs.get('framework', '')
         mya_resource = cur_ctx.get('_mya_resource')
+        framework = kwargs.get('framework', '')
         # 分析并收集依赖
         if framework:
             mya_resource.load_deps(framework)
@@ -87,16 +87,18 @@ class HtmlClostExtension(Extension):
 
     def parse(self, parser):
         lineno  = parser.stream.expect('name:endhtml').lineno
+        cur_ctx = nodes.ContextReference() # 当前上下文
 
         call = self.call_method(
             '_endhtml',
-            [],
+            [cur_ctx],
             lineno=lineno
         )
 
         return nodes.Output([call], lineno=lineno)
 
-    def _endhtml(self):
+    def _endhtml(self, *args):
+        # cur_ctx = args[0]
         # mya_resource = cur_ctx.get('_mya_resource')
         # tips: 后续可以插入一些内容到 html 之后
         return '</html>'
