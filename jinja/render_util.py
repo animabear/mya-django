@@ -5,7 +5,7 @@ import jinja2
 
 from django.http import HttpResponse
 from django.conf import settings
-from resource import MYAResource
+from .resource import MYAResource
 
 # jinja2 extension
 from jinja.extension.widget import WidgetExtension

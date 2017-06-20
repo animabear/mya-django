@@ -1,1 +1,0 @@
-define("component/home/comp1/index",function(n,o){"use strict";o.init=function(){console.log("comp1")}});
