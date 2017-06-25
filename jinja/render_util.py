@@ -42,8 +42,12 @@ def view(request, template, context={}):
 
     # 读取静态资源映射表
     map_path = os.path.join(TEMPLATE_DIRS, template_base, 'map.json')
-    with open(map_path) as map_file:
-        res_map = json.load(map_file)
+
+    try:
+        with open(map_path) as map_file:
+            res_map = json.load(map_file)
+    except:
+        res_map = {'res': {}, 'pkg': {}}
 
     mya_resource = MYAResource(res_map)
 
