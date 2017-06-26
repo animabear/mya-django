@@ -21,6 +21,7 @@ def home(request):
         'user': {
             'username': u'<script>熊猫大侠</script>',
             'age':  25
-        }
+        },
+        'list': [{'name': '1'}, {'name': '2'}]
     }
     return view(request, 'template@page/home/index.html', ctx)

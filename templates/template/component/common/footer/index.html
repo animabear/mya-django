@@ -10,5 +10,5 @@
 {% endstyle %}
 
 {% script %}
-require('component/common/footer/index').init('{{ user.username|e }}');
+require('component/common/footer/index').init({{ user.username|jsonify }});
 {% endscript %}
