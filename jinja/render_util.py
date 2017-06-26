@@ -49,7 +49,8 @@ def view(request, template, context={}):
     except:
         res_map = {'res': {}, 'pkg': {}}
 
-    mya_resource = MYAResource(res_map)
+    mya_debug = request.GET.get('mya_debug') == '1'
+    mya_resource = MYAResource(res_map, mya_debug)
 
     ctx = {
         '_mya_resource': mya_resource

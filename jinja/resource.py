@@ -10,13 +10,14 @@ class MYAResource(object):
      * @param res_map 静态资源映射表
      */
     """
-    def __init__(self, res_map):
+    def __init__(self, res_map, mya_debug=False):
         self.res_map = res_map
         self.loaded_deps = [] # 已添加的依赖
         self.style_deps  = [] # 样式依赖
         self.script_deps = [] # 脚本依赖
         self.style_pool  = [] # 收集 {% style %}{% endstyle %} 标签包裹的css
         self.script_pool = [] # 收集 {% script %}{% endscript %} 标签包裹的js
+        self.mya_debug = mya_debug # 开启debug模式，则不合并文件
 
     """
     /**
@@ -49,7 +50,7 @@ class MYAResource(object):
         if res_id in self.loaded_deps: # 已经加载过的资源直接跳过
             return
 
-        if res_data.get('pkg'):
+        if not self.mya_debug and res_data.get('pkg'):
             pkg_data = pkg.get(res_data.get('pkg'))
             pkg_deps = pkg_data.get('deps', [])
             pkg_has  = pkg_data.get('has', [])
