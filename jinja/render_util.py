@@ -17,7 +17,8 @@ from jinja.extension.filter import jsonify
 j2_env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
                         extensions=[WidgetExtension, ScriptExtension, StyleExtension, HtmlExtension, HtmlClostExtension])
 
-jinja2.filters.FILTERS['jsonify'] = jsonify
+jinja2.filters.FILTERS['jsonify'] = jsonify # for comp
+j2_env.filters['jsonify'] = jsonify # for global
 # end extension
 
 try:
