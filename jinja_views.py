@@ -24,4 +24,4 @@ def home(request):
         },
         'list': [{'name': '1'}, {'name': '2'}]
     }
-    return view(request, 'template@page/home/index.html', ctx)
+    return view(request, 'template:page/home/index.html', ctx)
