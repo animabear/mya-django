@@ -26,9 +26,13 @@ try:
 except:
     TEMPLATE_DIRS = 'templates'
 
+try:
+    PROJECT_TEMPLATE_DIR = settings.JINJA_TEMPLATE_DIR
+except:
+    PROJECT_TEMPLATE_DIR = 'template'
 
 """
-@param string template 模版路径，由模板namespace(相对于TEMPLATE_DIRS的目录)和模板资源id构成，
+@param string template 模版路径，由模板namespace(相对于 TEMPLATE_DIRS/PROJECT_TEMPLATE_DIR 的目录)和模板资源id构成，
                        即 namespace:template_path  eg. 'aweme_web:page/home/index.html'
 @param dict   context  模版变量
 """
@@ -42,7 +46,7 @@ def view(request, template, context={}):
         template_id   = template_data[1]
 
     # 读取静态资源映射表
-    map_path = os.path.join(TEMPLATE_DIRS, namespace, 'map.json')
+    map_path = os.path.join(TEMPLATE_DIRS, PROJECT_TEMPLATE_DIR, namespace, 'map.json')
 
     try:
         with open(map_path) as map_file:
@@ -58,7 +62,7 @@ def view(request, template, context={}):
     }
     ctx.update(context)
 
-    t = j2_env.get_template(namespace + '/' + template_id)
+    t = j2_env.get_template(os.path.join(PROJECT_TEMPLATE_DIR, namespace, template_id))
     html = t.render(ctx)
     mya_resource.load_page(template_id) # 最后load入口页面依赖的资源
     html = mya_resource.render_response(html)

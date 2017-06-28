@@ -12,7 +12,7 @@
             "pkg": "p0"
         },
         "component/common/button/index.html": {
-            "uri": "/template/component/common/button/index.html",
+            "uri": "/template/aweme_web/component/common/button/index.html",
             "type": "html",
             "deps": [
                 "component/common/button/index.scss"
@@ -24,7 +24,7 @@
             "pkg": "p1"
         },
         "component/common/footer/index.html": {
-            "uri": "/template/component/common/footer/index.html",
+            "uri": "/template/aweme_web/component/common/footer/index.html",
             "type": "html",
             "deps": [
                 "component/common/footer/index.js",
@@ -48,7 +48,7 @@
             "pkg": "p1"
         },
         "component/common/header/index.html": {
-            "uri": "/template/component/common/header/index.html",
+            "uri": "/template/aweme_web/component/common/header/index.html",
             "type": "html",
             "deps": [
                 "component/common/header/index.js",
@@ -80,7 +80,7 @@
             "pkg": "p0"
         },
         "component/home/comp1/index.html": {
-            "uri": "/template/component/home/comp1/index.html",
+            "uri": "/template/aweme_web/component/home/comp1/index.html",
             "type": "html",
             "deps": [
                 "component/home/comp1/index.js",
@@ -105,7 +105,7 @@
             "pkg": "p3"
         },
         "component/home/comp2/index.html": {
-            "uri": "/template/component/home/comp2/index.html",
+            "uri": "/template/aweme_web/component/home/comp2/index.html",
             "type": "html",
             "deps": [
                 "component/home/comp2/index.js",
@@ -145,7 +145,7 @@
             "pkg": "p0"
         },
         "page/home/index.html": {
-            "uri": "/template/page/home/index.html",
+            "uri": "/template/aweme_web/page/home/index.html",
             "type": "html",
             "deps": [
                 "page/home/index.js",
@@ -173,7 +173,7 @@
             "type": "css"
         },
         "page/layout.html": {
-            "uri": "/template/page/layout.html",
+            "uri": "/template/aweme_web/page/layout.html",
             "type": "html"
         },
         "static/js/mod.js": {
