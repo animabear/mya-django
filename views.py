@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response
 from django.template.loader import get_template
 from django.template import Context, RequestContext
 from django.http import HttpResponse
-from jinja.resource import MYAResource
+from mya_jinja.resource import MYAResource
 
 from jinja2 import Template
 

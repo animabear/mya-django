@@ -1,5 +1,6 @@
 # coding=utf-8
-from jinja.render_util import view
+from mya_jinja.render_util import view
+from django.http import HttpResponse
 
 # pages
 def jinja2(request):
@@ -11,7 +12,7 @@ def jinja2(request):
             'age':  25
         }
     }
-    return view(request, 'pages/jinja2.html', ctx)
+    return HttpResponse(view(request, 'pages/jinja2.html', ctx))
 
 
 def home(request):
@@ -24,4 +25,4 @@ def home(request):
         },
         'list': [{'name': '1'}, {'name': '2'}]
     }
-    return view(request, 'aweme_web:page/home/index.html', ctx)
+    return HttpResponse(view(request, 'aweme_web:page/home/index.html', ctx))

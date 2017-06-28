@@ -3,16 +3,15 @@ import json
 import os
 import jinja2
 
-from django.http import HttpResponse
-from django.conf import settings
+import settings
 from .resource import MYAResource
 
 # jinja2 extension
-from jinja.extension.widget import WidgetExtension
-from jinja.extension.script import ScriptExtension
-from jinja.extension.style  import StyleExtension
-from jinja.extension.html   import HtmlExtension, HtmlClostExtension
-from jinja.extension.filter import jsonify
+from .extension.widget import WidgetExtension
+from .extension.script import ScriptExtension
+from .extension.style  import StyleExtension
+from .extension.html   import HtmlExtension, HtmlClostExtension
+from .extension.filter import jsonify
 
 j2_env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
                         extensions=['jinja2.ext.with_', WidgetExtension, ScriptExtension, StyleExtension, HtmlExtension, HtmlClostExtension])
@@ -67,4 +66,4 @@ def view(request, template, context={}):
     mya_resource.load_page(template_id) # 最后load入口页面依赖的资源
     html = mya_resource.render_response(html)
 
-    return HttpResponse(html)
+    return html
