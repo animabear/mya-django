@@ -115,7 +115,8 @@ TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates'),
 )
 
-JINJA_TEMPLATE_DIR = 'template'
+# 项目所在模板目录，相对于 TEMPLATE_DIRS，比如配置为 template，则项目实际所在模板目录为 'templates/template'
+PROJECT_TEMPLATE_DIR = 'template'
 
 INSTALLED_APPS = (
     'django.contrib.auth',

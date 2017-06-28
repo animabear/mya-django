@@ -27,7 +27,7 @@ except:
     TEMPLATE_DIRS = 'templates'
 
 try:
-    PROJECT_TEMPLATE_DIR = settings.JINJA_TEMPLATE_DIR
+    PROJECT_TEMPLATE_DIR = settings.PROJECT_TEMPLATE_DIR
 except:
     PROJECT_TEMPLATE_DIR = 'template'
 
