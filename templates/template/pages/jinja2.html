@@ -3,6 +3,7 @@
 {% block content %}
     <p>This is a jinja template!</p>
     <p>hello {{ name | e }}</p>
+    <p>Not exists variable: {{ people.a.b }}</p>
     {% if not name %}
     {% comp name="widget/header.html" mode="test" %}
     {% endif %}

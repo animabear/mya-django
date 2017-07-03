@@ -4,7 +4,15 @@ import os
 import jinja2
 
 import settings
+from jinja2 import Undefined
 from .resource import MYAResource
+
+class SilentUndefined(Undefined):
+    '''
+    变量不存在时不抛出异常，同 django 默认行为
+    '''
+    def _fail_with_undefined_error(self, *args, **kwargs):
+        return None
 
 # jinja2 extension
 from .extension.widget import WidgetExtension
@@ -14,6 +22,7 @@ from .extension.html   import HtmlExtension, HtmlClostExtension
 from .extension.filter import jsonify
 
 j2_env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
+                        undefined=SilentUndefined,
                         extensions=['jinja2.ext.with_', WidgetExtension, ScriptExtension, StyleExtension, HtmlExtension, HtmlClostExtension])
 
 jinja2.filters.FILTERS['jsonify'] = jsonify # for comp

@@ -4,6 +4,8 @@
     <p>This is a django template!</p>
     <p>hello {{ name }}</p>
 
+    <p>Not exists variable: {{ people.a.b }}</p>
+
     <script type="text/javascript">
         var a = {{ user|safe }};
         console.log(a)
