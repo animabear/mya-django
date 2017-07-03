@@ -4,10 +4,9 @@ import os
 import jinja2
 
 import settings
-from jinja2 import Undefined
 from .resource import MYAResource
 
-class SilentUndefined(Undefined):
+class SilentUndefined(jinja2.Undefined):
     '''
     变量不存在时不抛出异常，同 django 默认行为
     '''
