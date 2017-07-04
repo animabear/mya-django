@@ -1,0 +1,234 @@
+{
+    "res": {
+        "web:component/api/index.js": {
+            "uri": "/static/resource/aweme_web/component/api/index_7dc8df0.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web:component/api/index"
+            },
+            "deps": [
+                "web:component/const/user.js"
+            ],
+            "pkg": "web:p0"
+        },
+        "web:component/common/button/index.html": {
+            "uri": "/template/aweme_web/component/common/button/index.html",
+            "type": "html",
+            "deps": [
+                "web:component/common/button/index.scss"
+            ]
+        },
+        "web:component/common/button/index.scss": {
+            "uri": "/static/resource/aweme_web/component/common/button/index_4cf861b.css",
+            "type": "css",
+            "pkg": "web:p1"
+        },
+        "web:component/common/footer/index.html": {
+            "uri": "/template/aweme_web/component/common/footer/index.html",
+            "type": "html",
+            "deps": [
+                "web:component/common/footer/index.js",
+                "web:component/common/footer/index.scss"
+            ]
+        },
+        "web:component/common/footer/index.js": {
+            "uri": "/static/resource/aweme_web/component/common/footer/index_9def57e.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web:component/common/footer/index"
+            },
+            "deps": [
+                "web:component/util/index.js"
+            ],
+            "pkg": "web:p0"
+        },
+        "web:component/common/footer/index.scss": {
+            "uri": "/static/resource/aweme_web/component/common/footer/index_7327a7e.css",
+            "type": "css",
+            "pkg": "web:p1"
+        },
+        "web:component/common/header/index.html": {
+            "uri": "/template/aweme_web/component/common/header/index.html",
+            "type": "html",
+            "deps": [
+                "web:component/common/header/index.js",
+                "web:component/common/header/index.scss"
+            ]
+        },
+        "web:component/common/header/index.js": {
+            "uri": "/static/resource/aweme_web/component/common/header/index_22d0a29.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web:component/common/header/index"
+            },
+            "deps": [
+                "web:component/util/index.js"
+            ],
+            "pkg": "web:p0"
+        },
+        "web:component/common/header/index.scss": {
+            "uri": "/static/resource/aweme_web/component/common/header/index_f7e6acb.css",
+            "type": "css",
+            "pkg": "web:p1"
+        },
+        "web:component/const/user.js": {
+            "uri": "/static/resource/aweme_web/component/const/user_2088a15.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web:component/const/user"
+            },
+            "pkg": "web:p0"
+        },
+        "web:component/home/comp1/index.html": {
+            "uri": "/template/aweme_web/component/home/comp1/index.html",
+            "type": "html",
+            "deps": [
+                "web:component/home/comp1/index.js",
+                "web:component/home/comp1/index.scss"
+            ]
+        },
+        "web:component/home/comp1/index.js": {
+            "uri": "/static/resource/aweme_web/component/home/comp1/index_993054e.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web:component/home/comp1/index"
+            },
+            "deps": [
+                "web:component/util/index.js",
+                "web:component/api/index.js"
+            ],
+            "pkg": "web:p2"
+        },
+        "web:component/home/comp1/index.scss": {
+            "uri": "/static/resource/aweme_web/component/home/comp1/index_d038aea.css",
+            "type": "css",
+            "pkg": "web:p3"
+        },
+        "web:component/home/comp2/index.html": {
+            "uri": "/template/aweme_web/component/home/comp2/index.html",
+            "type": "html",
+            "deps": [
+                "web:component/home/comp2/index.js",
+                "web:component/home/comp2/index.scss"
+            ]
+        },
+        "web:component/home/comp2/index.js": {
+            "uri": "/static/resource/aweme_web/component/home/comp2/index_fa2a6d8.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web:component/home/comp2/index"
+            },
+            "deps": [
+                "web:component/util/index.js"
+            ],
+            "pkg": "web:p2"
+        },
+        "web:component/home/comp2/index.scss": {
+            "uri": "/static/resource/aweme_web/component/home/comp2/index_cc9c549.css",
+            "type": "css",
+            "pkg": "web:p3"
+        },
+        "web:component/util/index.js": {
+            "uri": "/static/resource/aweme_web/component/util/index_fb8785a.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web:component/util/index"
+            },
+            "pkg": "web:p0"
+        },
+        "web:component/util/url.js": {
+            "uri": "/static/resource/aweme_web/component/util/url_7f05af5.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web:component/util/url"
+            },
+            "pkg": "web:p0"
+        },
+        "web:page/home/index.html": {
+            "uri": "/template/aweme_web/page/home/index.html",
+            "type": "html",
+            "deps": [
+                "web:page/home/index.js",
+                "web:page/home/index.less"
+            ]
+        },
+        "web:page/home/index.js": {
+            "uri": "/static/resource/aweme_web/page/home/index_2d7a7e3.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web:page/home/index"
+            },
+            "deps": [
+                "web:component/util/url.js"
+            ],
+            "pkg": "web:p2"
+        },
+        "web:page/home/index.less": {
+            "uri": "/static/resource/aweme_web/page/home/index_3564030.css",
+            "type": "css",
+            "pkg": "web:p3"
+        },
+        "web:static/style/normalize.css": {
+            "uri": "/static/resource/aweme_web/static/style/normalize_bfcc33a.css",
+            "type": "css"
+        },
+        "web:static/script/lib/zepto.js": {
+            "uri": "/static/resource/aweme_web/static/script/lib/zepto_602a7da.js",
+            "type": "js"
+        },
+        "web:page/layout.html": {
+            "uri": "/template/aweme_web/page/layout.html",
+            "type": "html"
+        },
+        "web:static/script/lib/mod.js": {
+            "uri": "/static/resource/aweme_web/static/script/lib/mod_9528f52.js",
+            "type": "js"
+        }
+    },
+    "pkg": {
+        "web:p0": {
+            "uri": "/static/resource/aweme_web/page/common_be27f30.js",
+            "type": "js",
+            "has": [
+                "web:component/const/user.js",
+                "web:component/api/index.js",
+                "web:component/util/index.js",
+                "web:component/common/footer/index.js",
+                "web:component/common/header/index.js",
+                "web:component/util/url.js"
+            ]
+        },
+        "web:p1": {
+            "uri": "/static/resource/aweme_web/page/common_9da4baf.css",
+            "type": "css",
+            "has": [
+                "web:component/common/button/index.scss",
+                "web:component/common/footer/index.scss",
+                "web:component/common/header/index.scss"
+            ]
+        },
+        "web:p2": {
+            "uri": "/static/resource/aweme_web/page/home_80c36e0.js",
+            "type": "js",
+            "has": [
+                "web:component/home/comp1/index.js",
+                "web:component/home/comp2/index.js",
+                "web:page/home/index.js"
+            ],
+            "deps": [
+                "web:component/util/index.js",
+                "web:component/api/index.js",
+                "web:component/util/url.js"
+            ]
+        },
+        "web:p3": {
+            "uri": "/static/resource/aweme_web/page/home_330197d.css",
+            "type": "css",
+            "has": [
+                "web:component/home/comp1/index.scss",
+                "web:component/home/comp2/index.scss",
+                "web:page/home/index.less"
+            ]
+        }
+    }
+}

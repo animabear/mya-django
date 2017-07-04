@@ -1,0 +1,1 @@
+define("web_i18n:component/util/url",function(e,n){Object.defineProperty(n,"__esModule",{value:!0}),n.default={getQueryStr:function(){console.log(location.href)}}});

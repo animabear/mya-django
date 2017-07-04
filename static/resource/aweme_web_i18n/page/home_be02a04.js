@@ -1,0 +1,6 @@
+;/*!web_i18n:component/home/comp1/index.js*/
+define("web_i18n:component/home/comp1/index",function(n,e){function o(n){return n&&n.__esModule?n:{"default":n}}{var i=n("web_i18n:component/util/index"),t=n("web_i18n:component/api/index");o(t)}e.init=function(){console.log("comp1"),i.test()}});
+;/*!web_i18n:component/home/comp2/index.js*/
+define("web_i18n:component/home/comp2/index",function(n,o){var e=n("web_i18n:component/util/index");o.init=function(){console.log("comp2"),e.test2()}});
+;/*!web_i18n:page/home/index.js*/
+define("web_i18n:page/home/index",function(e,o){function t(e){return e&&e.__esModule?e:{"default":e}}function n(){$.ajax({url:"/live/activity/common_activity/get_users/",dataType:"json",type:"get",data:{user_ids:"58948617868"},success:function(e){console.log(e)},error:function(){}}),$.ajax({url:"/aweme/v1/hot_aweme/",dataType:"json",type:"get",data:{cursor:0,count:10},success:function(e){console.log(e)},error:function(){}}),$.ajax({url:"/aweme/v1/spring/list/",dataType:"json",type:"get",success:function(e){console.log("test"),console.log(e)}})}function u(){console.log("home page!"),c.default.getQueryStr(),n()}Object.defineProperty(o,"__esModule",{value:!0}),o.init=u;var a=e("web_i18n:component/util/url"),c=t(a)});

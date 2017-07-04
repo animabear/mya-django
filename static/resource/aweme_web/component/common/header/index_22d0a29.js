@@ -1,0 +1,1 @@
+define("web:component/common/header/index",function(e,n){Object.defineProperty(n,"__esModule",{value:!0}),n.init=void 0;{var o=e("web:component/util/index");n.init=function(e){console.log("header: "+e.username),o.test()}}});

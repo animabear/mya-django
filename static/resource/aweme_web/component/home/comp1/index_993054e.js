@@ -1,0 +1,1 @@
+define("web:component/home/comp1/index",function(n,e){function o(n){return n&&n.__esModule?n:{"default":n}}{var t=n("web:component/util/index"),i=n("web:component/api/index");o(i)}e.init=function(){console.log("comp1"),t.test()}});

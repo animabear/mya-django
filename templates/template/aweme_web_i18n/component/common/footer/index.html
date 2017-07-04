@@ -1,0 +1,14 @@
+<div class="footer">
+    <p>footer: {{ user.username|e }} : {{ user.age|e }} </p>
+    {% comp name="web_i18n:component/common/button/index.html" text=user.age %}
+</div>
+
+{% style %}
+.footer {
+    color: blue
+}
+{% endstyle %}
+
+{% script %}
+require('web_i18n:component/common/footer/index').init({{ user.username|jsonify }});
+{% endscript %}

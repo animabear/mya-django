@@ -119,6 +119,8 @@ TEMPLATE_DIRS = (
 # 项目所在模板目录，相对于 TEMPLATE_DIRS，比如配置为 template，则项目实际所在模板目录为 'templates/template'
 PROJECT_TEMPLATE_DIR = 'template'
 
+MYA_CONF_DIR = os.path.join(os.path.dirname(__file__), 'templates', 'template', 'mya_conf')
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,0 +1,1 @@
+define("web:component/home/comp2/index",function(n,o){var e=n("web:component/util/index");o.init=function(){console.log("comp2"),e.test2()}});

@@ -1,0 +1,1 @@
+define("web:component/util/index",function(e,t){Object.defineProperty(t,"__esModule",{value:!0});t.test=function(){console.log("test")},t.test2=function(){console.log("test2")}});

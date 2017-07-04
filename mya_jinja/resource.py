@@ -1,5 +1,7 @@
 # coding=utf-8
 import re
+import os
+import json
 
 class MYAResource(object):
     SCRIPT_PLACEHOLDER_PTN = re.compile(r'<!--\s*SCRIPT_PLACEHOLDER\s*-->')
@@ -10,8 +12,9 @@ class MYAResource(object):
      * @param res_map 静态资源映射表
      */
     """
-    def __init__(self, res_map, mya_debug=False):
-        self.res_map = res_map
+    def __init__(self, conf_root, mya_debug=False):
+        self.res_map = {}
+        self.conf_root   = conf_root # 静态资源映射表存放目录
         self.loaded_deps = [] # 已添加的依赖
         self.style_deps  = [] # 样式依赖
         self.script_deps = [] # 脚本依赖
@@ -21,12 +24,51 @@ class MYAResource(object):
 
     """
     /**
+     * @param res_id
+     */
+    """
+    def get_namespace(self, res_id):
+        temp = res_id.split(':')
+        if len(temp) == 1:
+            namespace = ''
+        else:
+            namespace = temp[0]
+        return namespace
+
+    """
+    /**
+     * 加载静态资源映射表
+     * @param namespace 命名空间
+     */
+    """
+    def load_res_map(self, namespace):
+        if self.res_map.get(namespace):
+            return self.res_map.get(namespace)
+
+        map_path = os.path.join(self.conf_root, namespace + '-map.json')
+
+        try:
+            with open(map_path) as map_file:
+                self.res_map[namespace] = json.load(map_file)
+        except:
+            self.res_map[namespace] = {'res': {}, 'pkg': {}}
+
+        return self.res_map.get(namespace)
+
+    """
+    /**
      * 加载页面，获得入口页面依赖的资源文件
      * @param string res_id 页面资源id
      */
     """
-    def load_page(self, res_id):
-        res = self.res_map.get('res', {})
+    def load_page_deps(self, res_id):
+        namespace = self.get_namespace(res_id)
+
+        if not namespace:
+            return
+
+        res_map = self.load_res_map(namespace)
+        res = res_map.get('res', {})
         res_data = res.get(res_id, {})
         deps     = res_data.get('deps', [])
 
@@ -40,8 +82,14 @@ class MYAResource(object):
      */
     """
     def load_deps(self, res_id):
-        res = self.res_map.get('res', {})
-        pkg = self.res_map.get('pkg', {})
+        namespace = self.get_namespace(res_id)
+
+        if not namespace:
+            return
+
+        res_map = self.load_res_map(namespace)
+        res = res_map.get('res', {})
+        pkg = res_map.get('pkg', {})
         res_data  = res.get(res_id, {})
         file_type = res_data.get('type')
         uri       = res_data.get('uri')
@@ -106,7 +154,13 @@ class MYAResource(object):
      */
     """
     def get_template_path(self, name):
-        return self.res_map.get('res', {}).get(name, {}).get('uri', name)
+        namespace = self.get_namespace(name)
+
+        if not namespace:
+            return ''
+
+        res_map = self.load_res_map(namespace)
+        return res_map.get('res', {}).get(name, {}).get('uri', name)
 
     """
     /**

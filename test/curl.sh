@@ -3,7 +3,7 @@
 rm output/*
 
 url1="http://127.0.0.1:8000/home/" # add more URLs here
-url2="http://127.0.0.1:8000/jinja2/"
+url2="http://127.0.0.1:8000/home/"
 
 for i in {1..300}; do
     # run the curl job in the background so we can start another job

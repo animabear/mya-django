@@ -1,0 +1,234 @@
+{
+    "res": {
+        "web_i18n:component/api/index.js": {
+            "uri": "/static/resource/aweme_web_i18n/component/api/index_fdd362c.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web_i18n:component/api/index"
+            },
+            "deps": [
+                "web_i18n:component/const/user.js"
+            ],
+            "pkg": "web_i18n:p0"
+        },
+        "web_i18n:component/common/button/index.html": {
+            "uri": "/template/aweme_web_i18n/component/common/button/index.html",
+            "type": "html",
+            "deps": [
+                "web_i18n:component/common/button/index.scss"
+            ]
+        },
+        "web_i18n:component/common/button/index.scss": {
+            "uri": "/static/resource/aweme_web_i18n/component/common/button/index_4cf861b.css",
+            "type": "css",
+            "pkg": "web_i18n:p1"
+        },
+        "web_i18n:component/common/footer/index.html": {
+            "uri": "/template/aweme_web_i18n/component/common/footer/index.html",
+            "type": "html",
+            "deps": [
+                "web_i18n:component/common/footer/index.js",
+                "web_i18n:component/common/footer/index.scss"
+            ]
+        },
+        "web_i18n:component/common/footer/index.js": {
+            "uri": "/static/resource/aweme_web_i18n/component/common/footer/index_982e1df.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web_i18n:component/common/footer/index"
+            },
+            "deps": [
+                "web_i18n:component/util/index.js"
+            ],
+            "pkg": "web_i18n:p0"
+        },
+        "web_i18n:component/common/footer/index.scss": {
+            "uri": "/static/resource/aweme_web_i18n/component/common/footer/index_7327a7e.css",
+            "type": "css",
+            "pkg": "web_i18n:p1"
+        },
+        "web_i18n:component/common/header/index.html": {
+            "uri": "/template/aweme_web_i18n/component/common/header/index.html",
+            "type": "html",
+            "deps": [
+                "web_i18n:component/common/header/index.js",
+                "web_i18n:component/common/header/index.scss"
+            ]
+        },
+        "web_i18n:component/common/header/index.js": {
+            "uri": "/static/resource/aweme_web_i18n/component/common/header/index_b083818.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web_i18n:component/common/header/index"
+            },
+            "deps": [
+                "web_i18n:component/util/index.js"
+            ],
+            "pkg": "web_i18n:p0"
+        },
+        "web_i18n:component/common/header/index.scss": {
+            "uri": "/static/resource/aweme_web_i18n/component/common/header/index_f7e6acb.css",
+            "type": "css",
+            "pkg": "web_i18n:p1"
+        },
+        "web_i18n:component/const/user.js": {
+            "uri": "/static/resource/aweme_web_i18n/component/const/user_cb9e0ca.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web_i18n:component/const/user"
+            },
+            "pkg": "web_i18n:p0"
+        },
+        "web_i18n:component/home/comp1/index.html": {
+            "uri": "/template/aweme_web_i18n/component/home/comp1/index.html",
+            "type": "html",
+            "deps": [
+                "web_i18n:component/home/comp1/index.js",
+                "web_i18n:component/home/comp1/index.scss"
+            ]
+        },
+        "web_i18n:component/home/comp1/index.js": {
+            "uri": "/static/resource/aweme_web_i18n/component/home/comp1/index_488385b.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web_i18n:component/home/comp1/index"
+            },
+            "deps": [
+                "web_i18n:component/util/index.js",
+                "web_i18n:component/api/index.js"
+            ],
+            "pkg": "web_i18n:p2"
+        },
+        "web_i18n:component/home/comp1/index.scss": {
+            "uri": "/static/resource/aweme_web_i18n/component/home/comp1/index_d038aea.css",
+            "type": "css",
+            "pkg": "web_i18n:p3"
+        },
+        "web_i18n:component/home/comp2/index.html": {
+            "uri": "/template/aweme_web_i18n/component/home/comp2/index.html",
+            "type": "html",
+            "deps": [
+                "web_i18n:component/home/comp2/index.js",
+                "web_i18n:component/home/comp2/index.scss"
+            ]
+        },
+        "web_i18n:component/home/comp2/index.js": {
+            "uri": "/static/resource/aweme_web_i18n/component/home/comp2/index_8a02d7a.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web_i18n:component/home/comp2/index"
+            },
+            "deps": [
+                "web_i18n:component/util/index.js"
+            ],
+            "pkg": "web_i18n:p2"
+        },
+        "web_i18n:component/home/comp2/index.scss": {
+            "uri": "/static/resource/aweme_web_i18n/component/home/comp2/index_cc9c549.css",
+            "type": "css",
+            "pkg": "web_i18n:p3"
+        },
+        "web_i18n:component/util/index.js": {
+            "uri": "/static/resource/aweme_web_i18n/component/util/index_9fa70f5.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web_i18n:component/util/index"
+            },
+            "pkg": "web_i18n:p0"
+        },
+        "web_i18n:component/util/url.js": {
+            "uri": "/static/resource/aweme_web_i18n/component/util/url_9e83fc9.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web_i18n:component/util/url"
+            },
+            "pkg": "web_i18n:p0"
+        },
+        "web_i18n:page/home/index.html": {
+            "uri": "/template/aweme_web_i18n/page/home/index.html",
+            "type": "html",
+            "deps": [
+                "web_i18n:page/home/index.js",
+                "web_i18n:page/home/index.less"
+            ]
+        },
+        "web_i18n:page/home/index.js": {
+            "uri": "/static/resource/aweme_web_i18n/page/home/index_181f265.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "web_i18n:page/home/index"
+            },
+            "deps": [
+                "web_i18n:component/util/url.js"
+            ],
+            "pkg": "web_i18n:p2"
+        },
+        "web_i18n:page/home/index.less": {
+            "uri": "/static/resource/aweme_web_i18n/page/home/index_3564030.css",
+            "type": "css",
+            "pkg": "web_i18n:p3"
+        },
+        "web_i18n:page/layout.html": {
+            "uri": "/template/aweme_web_i18n/page/layout.html",
+            "type": "html"
+        },
+        "web_i18n:static/script/lib/mod.js": {
+            "uri": "/static/resource/aweme_web_i18n/static/script/lib/mod_9528f52.js",
+            "type": "js"
+        },
+        "web_i18n:static/script/lib/zepto.js": {
+            "uri": "/static/resource/aweme_web_i18n/static/script/lib/zepto_602a7da.js",
+            "type": "js"
+        },
+        "web_i18n:static/style/normalize.css": {
+            "uri": "/static/resource/aweme_web_i18n/static/style/normalize_bfcc33a.css",
+            "type": "css"
+        }
+    },
+    "pkg": {
+        "web_i18n:p0": {
+            "uri": "/static/resource/aweme_web_i18n/page/common_8378af2.js",
+            "type": "js",
+            "has": [
+                "web_i18n:component/const/user.js",
+                "web_i18n:component/api/index.js",
+                "web_i18n:component/util/index.js",
+                "web_i18n:component/common/footer/index.js",
+                "web_i18n:component/common/header/index.js",
+                "web_i18n:component/util/url.js"
+            ]
+        },
+        "web_i18n:p1": {
+            "uri": "/static/resource/aweme_web_i18n/page/common_2aed13e.css",
+            "type": "css",
+            "has": [
+                "web_i18n:component/common/button/index.scss",
+                "web_i18n:component/common/footer/index.scss",
+                "web_i18n:component/common/header/index.scss"
+            ]
+        },
+        "web_i18n:p2": {
+            "uri": "/static/resource/aweme_web_i18n/page/home_be02a04.js",
+            "type": "js",
+            "has": [
+                "web_i18n:component/home/comp1/index.js",
+                "web_i18n:component/home/comp2/index.js",
+                "web_i18n:page/home/index.js"
+            ],
+            "deps": [
+                "web_i18n:component/util/index.js",
+                "web_i18n:component/api/index.js",
+                "web_i18n:component/util/url.js"
+            ]
+        },
+        "web_i18n:p3": {
+            "uri": "/static/resource/aweme_web_i18n/page/home_04b4f77.css",
+            "type": "css",
+            "has": [
+                "web_i18n:component/home/comp1/index.scss",
+                "web_i18n:component/home/comp2/index.scss",
+                "web_i18n:page/home/index.less"
+            ]
+        }
+    }
+}

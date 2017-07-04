@@ -1,0 +1,1 @@
+define("web:component/common/footer/index",function(e,o){Object.defineProperty(o,"__esModule",{value:!0}),o.init=void 0;{var n=e("web:component/util/index");o.init=function(e){console.log("footer: "+e),n.test2()}}});

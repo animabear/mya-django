@@ -1,0 +1,16 @@
+{% extends "template/aweme_web_i18n/page/layout.html" %}
+
+{% block content %}
+    {% comp name="web_i18n:component/common/header/index.html" user=user %}
+    {% comp name="web_i18n:component/common/footer/index.html" user=user %}
+
+    {% comp name="web_i18n:component/home/comp1/index.html" %}
+    {% comp name="web_i18n:component/home/comp2/index.html" %}
+
+    {% comp name="web:component/home/comp1/index.html" %}
+
+    {% script %}
+    require('web_i18n:page/home/index').init()
+    require('web:component/home/comp2/index').init()
+    {% endscript %}
+{% endblock %}

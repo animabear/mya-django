@@ -1,0 +1,6 @@
+/*!web_i18n:component/home/comp1/index.scss*/
+.home-comp1{background-color:#ff0}
+/*!web_i18n:component/home/comp2/index.scss*/
+.home-comp2{background-color:green}
+/*!web_i18n:page/home/index.less*/
+body{background:#eee}.flex{display:-webkit-box;display:-ms-flexbox;display:flex}

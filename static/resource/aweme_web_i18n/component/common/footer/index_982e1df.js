@@ -1,0 +1,1 @@
+define("web_i18n:component/common/footer/index",function(e,n){Object.defineProperty(n,"__esModule",{value:!0}),n.init=void 0;{var o=e("web_i18n:component/util/index");n.init=function(e){console.log("footer: "+e),o.test2()}}});

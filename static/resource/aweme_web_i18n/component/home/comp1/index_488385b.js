@@ -1,0 +1,1 @@
+define("web_i18n:component/home/comp1/index",function(n,e){function o(n){return n&&n.__esModule?n:{"default":n}}{var i=n("web_i18n:component/util/index"),t=n("web_i18n:component/api/index");o(t)}e.init=function(){console.log("comp1"),i.test()}});
