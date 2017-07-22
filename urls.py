@@ -19,7 +19,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^index/', views.index),
-    url(r'^jinja2/', jinja_views.jinja2),
     url(r'^home/', jinja_views.home),
     # url(r'^static/(?P<path>.*)$', 'pyutil.django.views.static.serve', {'document_root': settings.STATICFILES_DIR})
 )
