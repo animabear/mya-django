@@ -13,4 +13,18 @@
     require('web_i18n:page/home/index').init()
     require('web:component/home/comp2/index').init()
     {% endscript %}
+
+    <p>{{ people.a.b }}</p>
+
+    <script>var a = {{ user.a.b|jsonify }};</script>
+
+    {% if user.username.b.x and user.username.b.x|length %}
+    yes
+    {% else %}
+    no1
+    {% endif %}
+
+    <p>{{ x.username.b and user.username.b.d.0 }}</p>
+
+    <p>{{ user.username.b and user.username.b.0.x and user.username.b.0.x.0 }}</p>
 {% endblock %}

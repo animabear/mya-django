@@ -1,13 +1,23 @@
 {% extends "layout.html" %}
 
+{% load jsonify from filter_util %}
+
 {% block content %}
     <p>This is a django template!</p>
     <p>hello {{ name }}</p>
 
     <p>Not exists variable: {{ people.a.b }}</p>
 
+    <script>var b = {{ user.xxx|jsonify }}</script>
+
     <script type="text/javascript">
         var a = {{ user|safe }};
         console.log(a)
     </script>
+
+    {% if a.b|length %}
+    yes
+    {% else %}
+    no
+    {% endif %}
 {% endblock %}

@@ -29,4 +29,6 @@ def _htmlsafe_json_dumps(obj, dumper=None, **kwargs):
     return rv
 
 def jsonify(value):
+    if not value:
+        return _htmlsafe_json_dumps('', ujson.dumps)
     return _htmlsafe_json_dumps(value, ujson.dumps)
