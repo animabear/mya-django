@@ -50,7 +50,7 @@ def view(request, template, context={}):
         namespace = template_data[0]
         template_id   = template_data[1]
 
-    mya_debug = request.GET.get('mya_debug') == '1'
+    mya_debug = _get_mya_debug(request)
     mya_resource = MYAResource(MYA_CONF_DIR, mya_debug)
 
     ctx = {
@@ -64,3 +64,20 @@ def view(request, template, context={}):
     html = mya_resource.render_response(html)
 
     return html
+
+def _get_mya_debug(request):
+    mya_debug = False
+
+    # django
+    try:
+        return request.GET.get('mya_debug') == '1'
+    except:
+        pass
+
+    # flask
+    try:
+        return request.args.get('mya_debug') == '1'
+    except:
+        pass
+
+    return mya_debug
