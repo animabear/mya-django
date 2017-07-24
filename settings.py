@@ -121,6 +121,15 @@ PROJECT_TEMPLATE_DIR = 'template'
 
 MYA_CONF_DIR = os.path.join(os.path.dirname(__file__), 'templates', 'template', 'mya_conf')
 
+MYA_I18N_DIR = os.path.join(os.path.dirname(__file__), 'lang')
+MYA_I18N_MAP = {
+    'zh':    ['zh', 'zh-cn'],
+    'zh-tw': ['zh-tw', 'zh-hk'],
+    'ja':    ['ja', 'ja-jp'],
+    'ko':    ['ko', 'ko-kr']
+}
+MYA_I18N_DEFAULT_CODE = 'en'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',

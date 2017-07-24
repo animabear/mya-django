@@ -20,12 +20,19 @@ from .extension.style  import StyleExtension
 from .extension.html   import HtmlExtension, HtmlClostExtension
 from .extension.filter import jsonify
 
+from .i18n import gettext
+
 j2_env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
                         undefined=SilentUndefined,
                         extensions=['jinja2.ext.with_', WidgetExtension, ScriptExtension, StyleExtension, HtmlExtension, HtmlClostExtension])
 
 jinja2.filters.FILTERS['jsonify'] = jsonify # for comp
 j2_env.filters['jsonify'] = jsonify # for global
+
+# i18n
+j2_env.globals.update(
+    gettext=gettext
+)
 # end extension
 
 # 模板目录一定要有

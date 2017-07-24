@@ -27,4 +27,11 @@
     <p>{{ x.username.b and user.username.b.d.0 }}</p>
 
     <p>{{ user.username.b and user.username.b.0.x and user.username.b.0.x.0 }}</p>
+
+    <p>{{ gettext('<strong>测试</strontg>') }}</p>
+
+    <script type="text/javascript">
+        window.LANG_MAP = {{ _lang_map|jsonify }};
+        console.log(window.LANG_MAP);
+    </script>
 {% endblock %}
