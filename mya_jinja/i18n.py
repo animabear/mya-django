@@ -59,6 +59,13 @@ def get_lang_map(lang_code=I18N_DEFAULT_CODE):
     return lang_map
 
 
+def gettext(lang_code=I18N_DEFAULT_CODE, text="", **kwargs):
+    lang_map = get_lang_map(lang_code)
+    if not lang_map.get(text):
+        return _replaceText(text, {})
+    return _replaceText(lang_map.get(text), kwargs)
+
+
 """
 /**
  * @param context 请求上下文
@@ -67,7 +74,7 @@ def get_lang_map(lang_code=I18N_DEFAULT_CODE):
  */
 """
 @contextfunction
-def gettext(context, text, *args, **kwargs):
+def _gettext(context, text, **kwargs):
     lang_code = context.get('_lang_code', I18N_DEFAULT_CODE)
     lang_map  = get_lang_map(lang_code)
     if not lang_map.get(text):

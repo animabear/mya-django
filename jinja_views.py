@@ -8,6 +8,10 @@ def home(request):
     lang_code = i18n.get_lang_code(request.META.get('HTTP_ACCEPT_LANGUAGE'))
     lang_map  = i18n.get_lang_map(lang_code)
 
+    text = i18n.gettext(lang_code, u'{year}年{month}月', month='07', year="2017")
+
+    print text
+
     ctx = {
         'name': '<script>animabear</script>',
         'age': '25',
