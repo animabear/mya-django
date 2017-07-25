@@ -5,4 +5,9 @@
 
 {% script %}
 require('web_i18n:component/common/header/index').init({{ user|jsonify }});
+{% if user.username|length > 0 %}
+console.log(0)
+{% else %}
+console.log(1)
+{% endif %}
 {% endscript %}
