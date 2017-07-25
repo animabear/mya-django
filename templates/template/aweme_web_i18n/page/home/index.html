@@ -1,7 +1,8 @@
 {% extends "template/aweme_web_i18n/page/layout.html" %}
 
 {% block content %}
-    {% comp name="web_i18n:component/common/header/index.html" user=user %}
+    {% comp name="web_i18n:component/common/header/index.html" user=user a=a %}
+
     {% comp name="web_i18n:component/common/footer/index.html" user=user %}
 
     {% comp name="web_i18n:component/home/comp1/index.html" %}

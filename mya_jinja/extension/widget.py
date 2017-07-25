@@ -80,7 +80,7 @@ class WidgetExtension(Extension):
             if key in default_kwargs:
                 params[key] = val
             else:
-                ctx_params[key] = val
+                ctx_params[key] = val or '' # 避免 KeyError
 
         name = params.get('name') # template name
         mode = params.get('mode') # render mode
