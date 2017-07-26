@@ -3,6 +3,8 @@
 from jinja2 import lexer, nodes, Template
 from jinja2.ext import Extension
 
+from ..utils import isNum
+
 """
 {% style %}
     .widget { color: red }
@@ -37,7 +39,8 @@ class StyleExtension(Extension):
                 end = True
                 next(parser.stream)
                 continue
-            body.append(str(token.value))
+            fragment = str(token.value) if isNum(token.value) else token.value
+            body.append(fragment)
             next(parser.stream)
 
         style = ' '.join(body)

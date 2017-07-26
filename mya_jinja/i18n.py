@@ -5,7 +5,7 @@ import os
 import re
 import json
 import settings
-
+from .utils import isNum
 
 I18N_DIR = settings.MYA_I18N_DIR
 
@@ -70,7 +70,7 @@ def gettext(lang_code=I18N_DEFAULT_CODE, text="", **kwargs):
     """
     lang_map = get_lang_map(lang_code)
     if not lang_map.get(text):
-        return _replaceText(text, {})
+        return _replaceText(text, kwargs)
     return _replaceText(lang_map.get(text), kwargs)
 
 
@@ -94,19 +94,20 @@ def _gettext(context, text, **kwargs):
 
     Usage::
         {{ gettext('用户协议') }}
-        {{ gettext('%(year)年%(month)月', year=2017, month=7) }}
+        {{ gettext('{year}年{month}月', year=2017, month=7) }}
     """
 
     lang_code = context.get('_lang_code', I18N_DEFAULT_CODE)
     lang_map  = get_lang_map(lang_code)
     if not lang_map.get(text):
-        return _replaceText(text, {})
+        return _replaceText(text, kwargs)
     return _replaceText(lang_map.get(text), kwargs)
 
 
 def _replaceText(text, data):
     def repl(matchobj):
         key = matchobj.group(1)
-        return str(data.get(key, ''))
+        res = data.get(key, '')
+        return str(res) if isNum(res) else res
 
     return re.sub(interpn_ptn, repl, text)
