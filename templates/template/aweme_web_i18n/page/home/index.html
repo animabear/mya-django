@@ -32,7 +32,11 @@
     <p>{{ gettext('<strong>测试</strontg>') }}</p>
 
     <script type="text/javascript">
-        window.LANG_MAP = {{ _lang_map|jsonify }};
+        // window.LANG_MAP = {{ _lang_map|jsonify }};
+        window.LANG_MAP = {
+            '{year}年{month}月': "{{ gettexttpl('{year}年{month}月') }}"
+        };
+        window.LANG_CODE = '{{ _lang_code }}';
         console.log(window.LANG_MAP);
     </script>
 {% endblock %}

@@ -20,7 +20,7 @@ from .extension.style  import StyleExtension
 from .extension.html   import HtmlExtension, HtmlClostExtension
 from .extension.filter import jsonify
 
-from .i18n import _gettext
+from .i18n import _gettext, _gettexttpl
 
 j2_env = jinja2.Environment(loader=jinja2.FileSystemLoader(settings.TEMPLATE_DIRS),
                         undefined=SilentUndefined,
@@ -31,7 +31,8 @@ j2_env.filters['jsonify'] = jsonify # for global
 
 # i18n
 j2_env.globals.update(
-    gettext=_gettext
+    gettext=_gettext,
+    gettexttpl=_gettexttpl
 )
 # end extension
 
