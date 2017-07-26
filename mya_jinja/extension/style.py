@@ -37,7 +37,7 @@ class StyleExtension(Extension):
                 end = True
                 next(parser.stream)
                 continue
-            body.append(token.value)
+            body.append(str(token.value))
             next(parser.stream)
 
         style = ' '.join(body)
