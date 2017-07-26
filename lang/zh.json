@@ -21,6 +21,6 @@
     "抖音官方账号": "Tik Tok官方账号",
     "抖音短视频": "Tik Tok",
     "{year}年{month}月": "month {month}, year {year}",
-    "<strong>测试</strontg>": "<strong>test</strong>",
+    "我是个<strong>测试</strontg>": "I'm a <strong>test</strong>",
     "我叫{username}": "my name is {username}"
 }
