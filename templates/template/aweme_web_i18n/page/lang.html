@@ -1,0 +1,22 @@
+<script>
+(function() {
+var I18N_MAP = {
+    "哈哈哈": "{{ gettexttpl('哈哈哈')|safe }}",
+    "我的名字叫{name}": "{{ gettexttpl('我的名字叫{name}')|safe }}"
+};
+var I18N_LANG_CODE = '{{ _lang_code }}';
+function _replaceText(text, params) {
+    return text.replace(/\{\s*(\S+?)\s*\}/g, function(match, key) {
+        return params && params[key] || '';
+    });
+}
+window.i18n = {
+    gettext: function(text, params) {
+        return I18N_MAP[text] ? _replaceText(I18N_MAP[text], params) : _replaceText(text, params);
+    },
+    getLangCode: function() {
+        return I18N_LANG_CODE;
+    }
+};
+})();
+</script>

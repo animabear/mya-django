@@ -31,15 +31,17 @@
     <p>{{ user.username.b and user.username.b.0.x and user.username.b.0.x.0 }}</p>
 
     <p>翻译测试：</p>
-    <p>{{ gettext('我是个<strong>测试</strontg>') }}</p>
+    <p>{{ gettext('我是个<strong>测试</strong>') }}</p>
     <p>{{ gettext('我叫{username}', username=user.username)|e }}</p>
     <p>{{ gettext('今天天气是{weather}', weather="晴") }}</p>
+    <p>{{ gettext('我是{username}', username=user.username)|e }}</p>
 
     <script type="text/javascript">
-        // window.LANG_MAP = {{ _lang_map|jsonify }};
-        window.LANG_MAP = {
-            '{year}年{month}月': "{{ gettexttpl('{year}年{month}月') }}"
-        };
+        console.log('{{ gettext('哈哈哈') }}')
+        window.LANG_MAP = {{ _lang_map|jsonify }};
+        // window.LANG_MAP = {
+        //     '{year}年{month}月': "{{ gettexttpl('{year}年{month}月') }}"
+        // };
         window.LANG_CODE = '{{ _lang_code }}';
         console.log(window.LANG_MAP);
     </script>

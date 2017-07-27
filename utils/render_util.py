@@ -9,5 +9,6 @@ def mya_jinja_render(request, template, context=None, a=None, b=None):
 
     context['GA_ID'] = 'UA-75850242-4'
     context['_lang_code'] = lang_code # inject _lang_code
+    context['_lang_map']  = i18n.get_lang_map(lang_code)
 
     return HttpResponse( view(request, template, context) )

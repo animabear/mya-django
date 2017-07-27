@@ -88,7 +88,6 @@ class WidgetExtension(Extension):
         # 向下层 widget 传递 mya_resource
         ctx_params['_mya_resource'] = mya_resource = cur_ctx.get('_mya_resource')
         ctx_params['_lang_code'] = cur_ctx.get('_lang_code')
-        ctx_params['_lang_map'] = cur_ctx.get('_lang_map')
         # 分析并收集依赖
         mya_resource.load_deps(name)
         # 渲染模版

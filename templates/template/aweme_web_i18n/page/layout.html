@@ -11,6 +11,34 @@
 <body>
     {% block content %}{% endblock %}
     {% block baseFooter %}{% endblock %}
+    <script>
+    (function() {
+    var I18N_LANG_MAP = {
+        "哈哈哈": "{{ gettexttpl('哈哈哈')|safe }}",
+        "{year}年{month}月": "{{ gettexttpl('{year}年{month}月')|safe }}",
+        "我是个<strong>测试</trontg>": "{{ gettexttpl('我是个<strong>测试</trontg>')|safe }}",
+        "我叫{username}": "{{ gettexttpl('我叫{username}')|safe }}",
+        "我的名字叫{name}": "{{ gettexttpl('我的名字叫{name}')|safe }}"
+    }; // 前端用到的文案
+    var I18N_LANG_CODE = '{{ _lang_code }}';
+    function _replaceText(text, params) {
+        return text.replace(/\{\s*(\S+?)\s*\}/g, function(match, key) {
+            return params && params[key] || '';
+        });
+    }
+    window.i18n = {
+        gettext: function(text, params) {
+            return I18N_LANG_MAP[text] ? _replaceText(I18N_LANG_MAP[text], params) : _replaceText(text, params);
+        },
+        getLangCode: function() {
+            return I18N_LANG_CODE;
+        },
+        getLangMap: function() {
+            return I18N_LANG_MAP;
+        }
+    };
+    })();
+    </script>
     <script type="text/javascript" src="/static/resource/aweme_web_i18n/static/script/lib/zepto_602a7da.js"></script>
 </body>
 {% endhtml %}

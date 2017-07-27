@@ -5,7 +5,7 @@ import os
 import re
 import json
 import settings
-from .utils import isNum
+from .utils import isNum, dict_merge
 
 I18N_DIR = settings.MYA_I18N_DIR
 
@@ -27,7 +27,7 @@ except:
     I18N_DEFAULT_CODE = 'en'
 
 
-i18n_lang_map = {} # 缓存语言map
+i18n_lang_map = {}
 interpn_ptn = re.compile(r'\{\s*(\S+?)\s*\}') # 插值
 
 
@@ -50,17 +50,20 @@ def get_lang_map(lang_code=I18N_DEFAULT_CODE):
     if i18n_lang_map.get(lang_code):
         return i18n_lang_map.get(lang_code)
 
-    map_path = os.path.join(I18N_DIR, lang_code + '.json')
-    lang_map = {}
+    # map_path = os.path.join(I18N_DIR, lang_code + '.json')
+    # lang_map = {}
+    #
+    # try:
+    #     with open(map_path) as map_file:
+    #         lang_map = json.load(map_file)
+    #         i18n_lang_map.update({ lang_code: lang_map })
+    # except:
+    #     pass
 
-    try:
-        with open(map_path) as map_file:
-            lang_map = json.load(map_file)
-            i18n_lang_map.update({ lang_code: lang_map })
-    except:
-        pass
+    if not i18n_lang_map:
+        dict_merge(i18n_lang_map, _load_lang_map())
 
-    return lang_map
+    return i18n_lang_map.get(lang_code, {})
 
 
 def gettext(lang_code=I18N_DEFAULT_CODE, text="", **kwargs):
@@ -111,3 +114,28 @@ def _replaceText(text, data):
         return str(res) if isNum(res) else res
 
     return re.sub(interpn_ptn, repl, text)
+
+
+def _load_lang_map():
+    """ 读取指定目录下的翻译文件，一次性载入内存
+    读取 lang/${namespace}/*.json，生成 lang_map
+    {
+        "zh": 合并 lang/*/zh.json
+    }
+    """
+    lang_map_res = {}
+    dirs = os.listdir(I18N_DIR) # web web_i18n
+    namespaces = [os.path.join(I18N_DIR, ns) for ns in dirs]
+    for ns in namespaces:
+        langs = os.listdir(ns) # en.json ja.json
+        for lang in langs:
+            lang_code = lang.replace('.json', '')
+            map_path  = os.path.join(ns, lang)
+            try:
+                with open(map_path) as map_file:
+                    lang_map = json.load(map_file)
+                    lang_map_res = dict_merge(lang_map_res, { lang_code: lang_map })
+            except:
+                pass
+
+    return lang_map_res
