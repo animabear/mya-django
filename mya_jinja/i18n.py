@@ -31,10 +31,13 @@ i18n_lang_map = {}
 interpn_ptn = re.compile(r'\{\s*(\S+?)\s*\}') # 插值
 
 
-def get_lang_code(accept_language=I18N_DEFAULT_CODE):
+def get_lang_code(accept_language=None):
     # 1. 获取 HTTP_ACCEPT_LANGUAGE: ja,zh-CN;q=0.8,zh;q=0.6,en;q=0.4
     # 2. 取第一组值中的第一个（移动端通常只有一个，pc端可能有多个）
     # 3. 匹配到结果字符串，默认英文
+    if accept_language is None:
+        accept_language = I18N_DEFAULT_CODE
+
     accept_lang = accept_language.lower();
     langs = accept_lang.split(';')[0]
     lang  = langs.split(',')[0]
@@ -46,7 +49,10 @@ def get_lang_code(accept_language=I18N_DEFAULT_CODE):
     return I18N_DEFAULT_CODE
 
 
-def get_lang_map(lang_code=I18N_DEFAULT_CODE):
+def get_lang_map(lang_code=None):
+    if lang_code is None:
+        lang_code = I18N_DEFAULT_CODE
+
     if i18n_lang_map.get(lang_code):
         return i18n_lang_map.get(lang_code)
 
@@ -66,11 +72,14 @@ def get_lang_map(lang_code=I18N_DEFAULT_CODE):
     return i18n_lang_map.get(lang_code, {})
 
 
-def gettext(lang_code=I18N_DEFAULT_CODE, text="", **kwargs):
+def gettext(lang_code=None, text="", **kwargs):
     """ 翻译函数，供后端调用
     Usage::
         gettext('zh', u'{year}年{month}月', month='07', year="2017")
     """
+    if lang_code is None:
+        lang_code = I18N_DEFAULT_CODE
+
     lang_map = get_lang_map(lang_code)
     if not lang_map.get(text):
         return _replaceText(text, kwargs)

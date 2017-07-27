@@ -128,7 +128,7 @@ MYA_I18N_MAP = {
     'ja':    ['ja', 'ja-jp'],
     'ko':    ['ko', 'ko-kr']
 }
-MYA_I18N_DEFAULT_CODE = 'en'
+MYA_I18N_DEFAULT_CODE = 'zh'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
