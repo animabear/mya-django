@@ -6,9 +6,13 @@
 </div>
 
 {% script %}
+{% set bar=""|default('animabear', true) %}
 require('web_i18n:component/common/header/index').init({{ user|jsonify }});
 {% if user.username|length > 0 %}
 console.log('哈哈哈哈')
+console.log('{{ bar }}')
+var text = '{{ gettext('{year}年{month}月', year=2017, month=8) }}';
+console.log(text)
 {% else %}
 console.log(1)
 {% endif %}
