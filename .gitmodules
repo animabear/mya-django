@@ -1,0 +1,3 @@
+[submodule "mya_jinja"]
+	path = mya_jinja
+	url = git@code.byted.org:ies/mya_jinja_plugin.git

@@ -1,0 +1,1 @@
+rsync -av --progress mya_jinja ~/repos/mya/mya-server-jinja/flask_server/ --exclude='mya_jinja/render_util.py' --exclude='mya_jinja/.gitignore'

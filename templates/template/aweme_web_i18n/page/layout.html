@@ -20,7 +20,7 @@
         "我叫{username}": "{{ gettexttpl('我叫{username}')|safe }}",
         "我的名字叫{name}": "{{ gettexttpl('我的名字叫{name}')|safe }}"
     }; // 前端用到的文案
-    var I18N_LANG_CODE = '{{ _lang_code }}';
+    var I18N_LANG_CODE = '{{ _mya_locale }}';
     function _replaceText(text, params) {
         return text.replace(/\{\s*(\S+?)\s*\}/g, function(match, key) {
             return params && params[key] || '';
