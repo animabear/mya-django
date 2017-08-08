@@ -2,7 +2,7 @@
     <p>header: {{ user.username|e }}</p>
     {% comp name="web_i18n:component/common/button/index.html" %}
     <p>{{ _('{year}年{month}月') }}</p>
-    <p>{{ _('{year}年{month}月', year=2017, month=8) }}</p>
+    <p>{{ _('{year}年{month}月', {'year': 2017, 'month': 8}) }}</p>
 </div>
 
 {% script %}
@@ -11,7 +11,7 @@ require('web_i18n:component/common/header/index').init({{ user|jsonify }});
 {% if user.username|length > 0 %}
 console.log('哈哈哈哈')
 console.log('{{ bar }}')
-var text = '{{ _('{year}年{month}月', year=2017, month=8) }}';
+var text = '{{  _('{year}年{month}月', {'year': 2017, 'month': 8}) }}';
 console.log(text)
 {% else %}
 console.log(1)

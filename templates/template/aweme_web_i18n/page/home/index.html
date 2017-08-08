@@ -32,9 +32,9 @@
 
     <p>翻译测试：</p>
     <p>{{ _('我是个<strong>测试</strong>') }}</p>
-    <p>{{ _('我叫{username}', username=user.username)|e }}</p>
-    <p>{{ _('今天天气是{weather}', weather="晴") }}</p>
-    <p>{{ _('我是{username}', username=user.username)|e }}</p>
+    <p>{{ _('我叫{username}', {'username': user.username|e}) }}</p>
+    <p>{{ _('今天天气是{weather}', {'weather': "晴"}) }}</p>
+    <p>{{ _('我是{username}', {'username': user.username|e}) }}</p>
 
     <script type="text/javascript">
         console.log('{{ _('哈哈哈') }}')
